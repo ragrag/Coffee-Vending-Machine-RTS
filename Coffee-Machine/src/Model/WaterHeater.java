@@ -33,8 +33,7 @@ public class WaterHeater extends Thread {
     }
 
       public void tempretureSignal(double temp) throws InterruptedException {
-        System.out.println("The temp is now " + temp);
-        
+
         if (temp <= 40 ) {
             heating= true;
         }
@@ -48,26 +47,18 @@ public class WaterHeater extends Thread {
     public void run() {
         while(true)
         {
-          if (heating) {
+            System.out.println("Water Tempreture: "+ waterContainer.getTempreture() );
+            if (heating) {
                     waterContainer.raiseTempreture();
-                  System.out.println("TEMP "+ waterContainer.getTempreture() );
-
-                try {
-                    this.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
-                }
             }   
-                  if (!heating) {
-                    waterContainer.idle();
-                  System.out.println("TEMP "+ waterContainer.getTempreture() );
-                 
-                try {
-                    this.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            if (!heating) {
+                waterContainer.idle();
             }  
+            try {
+                this.sleep(1400);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
       
