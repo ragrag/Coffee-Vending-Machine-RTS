@@ -29,3 +29,4 @@ dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
+/Coffee-Machine/nbproject/private/
