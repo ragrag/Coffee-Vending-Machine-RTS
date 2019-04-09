@@ -5,8 +5,12 @@
  */
 package system.views;
 
+import Model.Money_Dispenser;
 import backend.event.engine.Engine;
 import java.awt.Color;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import system.events.InsertMoneyEvent;
 import system.events.PowerEvent;
 
 
@@ -73,6 +77,10 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         power = new javax.swing.JLabel();
         switchPowerBtn = new javax.swing.JButton();
+        InsertMoney = new javax.swing.JButton();
+        moneyEntered = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Screen = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,29 +108,51 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
             }
         });
 
+        InsertMoney.setText("Insert Money");
+        InsertMoney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertMoneyActionPerformed(evt);
+            }
+        });
+
+        moneyEntered.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        Screen.setColumns(20);
+        Screen.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        Screen.setRows(5);
+        jScrollPane2.setViewportView(Screen);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(163, 163, 163))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(switchPowerBtn)
-                .addGap(45, 45, 45)
-                .addComponent(power)
-                .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(306, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(status))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(moneyEntered, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertMoney, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(77, 77, 77))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(32, 32, 32))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(40, 40, 40)
+                                    .addComponent(status))))
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(switchPowerBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(power)
+                        .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,13 +161,19 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(power)
                     .addComponent(switchPowerBtn))
-                .addGap(74, 74, 74)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(status)
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(moneyEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(InsertMoney)
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -151,12 +187,31 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         Engine.sendEvent(new PowerEvent(false));        // TODO add your handling code here:
     }//GEN-LAST:event_switchPowerBtnActionPerformed
 
+    private void InsertMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertMoneyActionPerformed
+        Money_Dispenser.getMoneyDispenser().swallow(); // TODO add your handling code here:
+    }//GEN-LAST:event_InsertMoneyActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
+    public JTextArea getScreen() {
+        return Screen;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public JTextField getMoneyEntered() {
+        return moneyEntered;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton InsertMoney;
+    private javax.swing.JTextArea Screen;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField moneyEntered;
     private javax.swing.JLabel power;
     private javax.swing.JLabel status;
     private javax.swing.JButton switchPowerBtn;

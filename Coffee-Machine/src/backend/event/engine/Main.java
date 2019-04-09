@@ -6,6 +6,8 @@
 package backend.event.engine;
 
 import Model.CoffeeMachine;
+import Model.MoneyHandler;
+import Model.Money_Sensor;
 import Model.WaterHeater;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -30,6 +32,8 @@ public class Main {
         WaterHeater_VIEW.getWaterHeaterView();
         CoffeeMachine.getCoffeeMachine();
         WaterHeater.getWaterHeater();
+        Money_Sensor moneySensor=new Money_Sensor();
+        MoneyHandler moneyHandle = MoneyHandler.getMoneyHandler();
         // Create Kettle
 
     }

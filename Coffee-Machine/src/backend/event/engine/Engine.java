@@ -22,6 +22,7 @@ public class Engine {
         //engine.getEPAdministrator().getConfiguration().addEventType(PowerEvent.class);
         engine.getEPAdministrator().getConfiguration().addEventType(WaterHeater_Sensor_READING.class);
         engine.getEPAdministrator().getConfiguration().addEventType(PowerEvent.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(InsertMoneyEvent.class);
         System.out.println("Events Successfully Registered.");
     }
 
