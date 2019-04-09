@@ -10,19 +10,15 @@ package system.events;
  * @author mohamed
  */
 public class WaterHeater_Sensor_READING {
+
     double waterTempreture;
 
-    
-    
     public WaterHeater_Sensor_READING(double waterTempreture) {
         this.waterTempreture = waterTempreture;
     }
 
-   
     public double getWaterTempreture() {
         return waterTempreture;
     }
-    
-    
-    
+
 }

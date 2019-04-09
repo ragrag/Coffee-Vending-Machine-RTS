@@ -10,5 +10,15 @@ package system.events;
  * @author mohamed
  */
 public class PowerEvent {
-    
+
+    boolean powered;
+
+    public PowerEvent(boolean powered) {
+        this.powered = powered;
+    }
+
+    public boolean getPowered() {
+        return powered;
+    }
+
 }

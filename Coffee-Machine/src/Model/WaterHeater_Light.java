@@ -10,5 +10,5 @@ package Model;
  * @author mohamed
  */
 public class WaterHeater_Light {
-    
+
 }

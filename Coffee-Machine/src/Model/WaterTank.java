@@ -5,38 +5,31 @@
  */
 package Model;
 
+
 /**
  *
  * @author mohamed
  */
-public class WaterContainer {
+public class WaterTank {
+
     private double tempreture;
 
-    
-    public WaterContainer(double tempreture)
-    {
+    public WaterTank(double tempreture) {
         this.tempreture = tempreture;
+
     }
-    
+
     public double getTempreture() {
         return tempreture;
     }
-    
-    
-       
-    void raiseTempreture()
-    {
-      
-            tempreture +=7.8;
+
+    void raiseTempreture() {
+
+        tempreture += 7.8;
     }
 
     public void idle() {
-        
-           tempreture -=5;
-           
-           
-        
-    }  
-    
-    
+        tempreture = tempreture - 5 < 0 ? 0 : tempreture - 5;
+    }
+
 }

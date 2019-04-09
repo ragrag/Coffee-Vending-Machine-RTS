@@ -5,9 +5,11 @@
  */
 package backend.event.engine;
 
+import Model.CoffeeMachine;
 import Model.WaterHeater;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import system.views.WaterHeater_VIEW;
 
 /**
  *
@@ -20,15 +22,16 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-               Logger.getRootLogger().setLevel(Level.OFF);
+
+        Logger.getRootLogger().setLevel(Level.OFF);
 
         // Register events
         Engine.registerEvents();
-
+        WaterHeater_VIEW.getWaterHeaterView();
+        CoffeeMachine.getCoffeeMachine();
+        WaterHeater.getWaterHeater();
         // Create Kettle
-        final WaterHeater kettle = new WaterHeater();
-        kettle.start();
+
     }
-    
+
 }

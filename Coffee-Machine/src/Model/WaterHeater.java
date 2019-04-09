@@ -4,56 +4,68 @@
  * and open the template in the editor.
  */
 package Model;
+
 import backend.event.engine.*;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.*;
+import system.views.WaterHeater_VIEW;
+
 /**
  *
  * @author mohamed
  */
 public class WaterHeater extends Thread {
+
     //private gui;
+    private static final WaterHeater waterHeater = new WaterHeater();
     private WaterHeater_Light waterHeaterLight;
     private WaterHeater_Sensor waterHeaterSensor;
-    private WaterContainer waterContainer;
+    private WaterTank waterContainer;
     private boolean heating;
-    
-    
-    public WaterHeater() {
-        
-        waterContainer = new WaterContainer(0);
-        waterHeaterLight =  new WaterHeater_Light();
-        waterHeaterSensor =  new WaterHeater_Sensor(this,waterContainer);
-     
+
+    private WaterHeater() {
+
+        waterContainer = new WaterTank(0);
+        waterHeaterLight = new WaterHeater_Light();
+        waterHeaterSensor = new WaterHeater_Sensor(waterContainer);
+        WaterHeater_VIEW.getWaterHeaterView().setStatus("Heating");
         heating = true;
-        
-        waterHeaterSensor.start();
+
+       
+        this.start();
     }
 
-      public void tempretureSignal(double temp) throws InterruptedException {
+    public void tempretureSignal(double temp) throws InterruptedException {
 
-        if (temp <= 40 ) {
-            heating= true;
-        }
-        else if(temp>80) 
+        if (temp <= 40) {
+            heating = true;
+        } else if (temp > 80) {
             heating = false;
-      }
-    
+        }
+    }
 
- 
-       @Override
+    public static WaterHeater getWaterHeater() {
+        return waterHeater;
+    }
+
+    @Override
     public void run() {
-        while(true)
-        {
-            System.out.println("Water Tempreture: "+ waterContainer.getTempreture() );
-            if (heating) {
-                    waterContainer.raiseTempreture();
-            }   
-            if (!heating) {
+        while (true) {
+            if (!CoffeeMachine.getCoffeeMachine().getPowered()) {
+                heating = false;
                 waterContainer.idle();
-            }  
+                WaterHeater_VIEW.getWaterHeaterView().setStatus("Heater turned off");
+            } else {
+                if (heating) {
+                    waterContainer.raiseTempreture();
+                    WaterHeater_VIEW.getWaterHeaterView().setStatus("HEATING");
+                } else if (!heating) {
+                    waterContainer.idle();
+                    WaterHeater_VIEW.getWaterHeaterView().setStatus("COOLING");
+                }
+            }
             try {
                 this.sleep(1400);
             } catch (InterruptedException ex) {
@@ -61,6 +73,5 @@ public class WaterHeater extends Thread {
             }
         }
     }
-      
-      
+
 }

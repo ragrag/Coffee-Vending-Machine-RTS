@@ -15,12 +15,13 @@ import system.events.*;
  * @author mohamed
  */
 public class Engine {
-    
-       private static EPServiceProvider engine = EPServiceProviderManager.getDefaultProvider();
+
+    private static EPServiceProvider engine = EPServiceProviderManager.getDefaultProvider();
 
     public static void registerEvents() {
         //engine.getEPAdministrator().getConfiguration().addEventType(PowerEvent.class);
         engine.getEPAdministrator().getConfiguration().addEventType(WaterHeater_Sensor_READING.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(PowerEvent.class);
         System.out.println("Events Successfully Registered.");
     }
 
@@ -29,11 +30,9 @@ public class Engine {
         System.out.println("EPL Statement Successfully Created.");
         return result;
     }
-    
-    public static void sendEvent(Object o)
-    {
+
+    public static void sendEvent(Object o) {
         engine.getEPRuntime().sendEvent(o);
     }
 
-    
 }
