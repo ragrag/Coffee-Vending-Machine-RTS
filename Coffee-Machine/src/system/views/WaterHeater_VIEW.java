@@ -10,8 +10,8 @@ import backend.event.engine.Engine;
 import java.awt.Color;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import system.events.InsertMoneyEvent;
-import system.events.PowerEvent;
+import system.events.*;
+
 
 
 /**
@@ -173,6 +173,11 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         Start.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Start.setText("Start");
+        Start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartActionPerformed(evt);
+            }
+        });
 
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Cancel.setText("Cancel");
@@ -196,17 +201,14 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Medium)
-                                            .addComponent(Small)
-                                            .addComponent(Large))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Medium)
+                                    .addComponent(Small)
+                                    .addComponent(Large)))
                             .addComponent(Sugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
@@ -216,8 +218,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                                     .addComponent(Macchiato)
                                     .addComponent(Cappuccino)
                                     .addComponent(Latte)
-                                    .addComponent(Mocha))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Mocha))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -300,12 +301,16 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tempretureActionPerformed
 
     private void switchPowerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchPowerBtnActionPerformed
-        Engine.sendEvent(new PowerEvent(false));        // TODO add your handling code here:
+        Engine.sendEvent(new Power_EVENT(false));        // TODO add your handling code here:
     }//GEN-LAST:event_switchPowerBtnActionPerformed
 
     private void InsertMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertMoneyActionPerformed
         Money_Dispenser.getMoneyDispenser().swallow(); // TODO add your handling code here:
     }//GEN-LAST:event_InsertMoneyActionPerformed
+
+    private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StartActionPerformed
 
     /**
      * @param args the command line arguments
