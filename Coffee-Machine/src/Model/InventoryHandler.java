@@ -78,7 +78,7 @@ public class InventoryHandler {
              medium=true;
          if(largeamount>=1)
              large=true;
-         SelectionPanel.getInsatance().ActivateButtons(mocha, espresso, mochaccino, machiatto, cappuccino, latte,sugar,small,medium,large);
+         SelectionPanel.getInsatance().ActivateButtons(mocha, espresso, cappuccino, machiatto, mochaccino, latte,sugar,small,medium,large);
      
      }
 }

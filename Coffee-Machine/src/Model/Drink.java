@@ -38,7 +38,9 @@ public class Drink {
     public int getChocolate() {
         return chocolate;
     }
-    
+    public String getName(){
+        return name;
+    }
     
     private static  void initializeDrinks(){
         Drink espresso = new Drink("espresso",2,4,5);
@@ -47,11 +49,12 @@ public class Drink {
         Drink machiatto = new Drink("machiatto",2,1,1);
         Drink mochaccino = new Drink("mochaccino",2,1,1);
         Drink cappuccino = new Drink("cappuccino",2,1,1);
-        allDrinks.add(espresso);
+        
         allDrinks.add(mocha);
-        allDrinks.add(latte);
-        allDrinks.add(machiatto);
+        allDrinks.add(espresso);
         allDrinks.add(mochaccino);
+        allDrinks.add(machiatto);
+        allDrinks.add(latte);
         allDrinks.add(cappuccino);
     }
     public static  ArrayList<Drink> getDrinks()

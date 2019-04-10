@@ -16,55 +16,54 @@ import system.views.WaterHeater_VIEW;
  *
  * @author Mostafa
  */
-public class SelectionPanel extends Thread{
+public class SelectionPanel extends Thread {
+
     private static SelectionPanel selectionpanel;
-    
-    Boolean mochabutton;
-    Boolean espressobutton;
-    Boolean mochaccinobutton;
-    Boolean machiattobutton;
-    Boolean cappuccinobutton;
-    Boolean lattebutton;
-    Boolean sugar;
-    Boolean small;
-    Boolean medium;
-    Boolean large;
+
+    Boolean mochabutton = false;
+    Boolean espressobutton = false;
+    Boolean mochaccinobutton = false;
+    Boolean machiattobutton = false;
+    Boolean cappuccinobutton = false;
+    Boolean lattebutton = false;
+    Boolean sugar = false;
+    Boolean small = false;
+    Boolean medium = false;
+    Boolean large = false;
 
     public SelectionPanel() {
         this.start();
     }
-    
-        public static SelectionPanel getInsatance(){
-    
-        if(selectionpanel != null){
-        
+
+    public static SelectionPanel getInsatance() {
+
+        if (selectionpanel != null) {
+
             return selectionpanel;
-        }
-        else{
-        
+        } else {
+
             return selectionpanel = new SelectionPanel();
         }
     }
 
-public void ActivateButtons(Boolean mochabutton,Boolean espressobutton,Boolean mochaccinobutton,
-    Boolean machiattobutton,Boolean cappuccinobutton,Boolean lattebutton,Boolean sugar,
-    Boolean small,Boolean medium,Boolean large){
-  
-    this.cappuccinobutton=cappuccinobutton;
-    this.espressobutton=espressobutton;
-    this.large=large;
-    this.lattebutton=lattebutton;
-    this.machiattobutton=machiattobutton;
-    this.medium=medium;
-    this.mochabutton=mochabutton;
-    this.mochaccinobutton=mochaccinobutton;
-    this.small=small;
-    this.sugar=sugar;
-    
+    public void ActivateButtons(Boolean mochabutton, Boolean espressobutton, Boolean mochaccinobutton,
+            Boolean machiattobutton, Boolean cappuccinobutton, Boolean lattebutton, Boolean sugar,
+            Boolean small, Boolean medium, Boolean large) {
 
-
-}
+        this.cappuccinobutton = cappuccinobutton;
+        this.espressobutton = espressobutton;
+        this.lattebutton = lattebutton;
+        this.machiattobutton = machiattobutton;
+        this.mochabutton = mochabutton;
+        this.mochaccinobutton = mochaccinobutton;
         
+        this.medium = medium;
+        this.large = large;
+        this.small = small;
+        this.sugar = sugar;
+
+    }
+
     @Override
     public void run() {
         while (true) {
@@ -75,15 +74,18 @@ public void ActivateButtons(Boolean mochabutton,Boolean espressobutton,Boolean m
                 Logger.getLogger(WaterHeater_Sensor.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (CoffeeMachine.getInstance().getPowered()) {
-                System.out.println("Mocha"+mochabutton);
-                WaterHeater_VIEW.getWaterHeaterView().setTemp("Heat Sensor Off");
-                  
+                System.out.println("Mocha" + mochabutton);
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(0), mochabutton);
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(1), espressobutton);
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), mochaccinobutton);
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(3), machiattobutton);
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(4), lattebutton );
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(5), cappuccinobutton);
+          
             } else {
-                
+
             }
         } //To change body of generated methods, choose Tools | Templates.
     }
-    
-        
-    
+
 }

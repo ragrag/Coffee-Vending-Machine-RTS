@@ -5,14 +5,13 @@
  */
 package system.views;
 
+import Model.Drink;
 import Model.Money_Dispenser;
 import backend.event.engine.Engine;
 import java.awt.Color;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import system.events.*;
-
-
 
 /**
  *
@@ -315,7 +314,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
     public JTextArea getScreen() {
         return Screen;
     }
@@ -326,7 +324,51 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     public JTextField getMoneyEntered() {
         return moneyEntered;
     }
+    
 
+    public void setDrink(Drink drink, boolean state) {
+        switch (drink.getName()) {
+            case "mocha":
+                if (state) {
+                    Mocha.setForeground(Color.GREEN);
+                } else {
+                    Mocha.setForeground(Color.RED);
+                }
+            case "espresso":
+                if (state) {
+                    Espresso.setForeground(Color.GREEN);
+                } else {
+                    Espresso.setForeground(Color.RED);
+                }
+            case "mochaccino":
+                if (state) {
+                    Mochaccino.setForeground(Color.GREEN);
+                } else {
+                    Mochaccino.setForeground(Color.RED);
+                }
+            case "machiatto":
+                if (state) {
+                    Macchiato.setForeground(Color.GREEN);
+                } else {
+                    Macchiato.setForeground(Color.RED);
+                }
+            case "latte":
+                if (state) {
+                    Latte.setForeground(Color.GREEN);
+                } else {
+                    Latte.setForeground(Color.RED);
+                }
+            case "cappuccino":
+                if (state) {
+                    Cappuccino.setForeground(Color.GREEN);
+                } else {
+                    Cappuccino.setForeground(Color.RED);
+                }
+                
+
+        }
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
     private javax.swing.JRadioButton Cappuccino;

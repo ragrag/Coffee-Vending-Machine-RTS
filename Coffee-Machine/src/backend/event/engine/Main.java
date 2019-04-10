@@ -26,12 +26,13 @@ public class Main {
 
         // Register events
         Engine.registerEvents();
+        SelectionPanel.getInsatance();
         WaterHeater_VIEW.getWaterHeaterView();
         CoffeeMachine.getInstance();
         WaterHeater.getWaterHeater();
         MoneyHandler.getMoneyHandler();
         InventoryHandler.getInsatance();
-        SelectionPanel.getInsatance();
+        
         // Create Kettle
 
     }
