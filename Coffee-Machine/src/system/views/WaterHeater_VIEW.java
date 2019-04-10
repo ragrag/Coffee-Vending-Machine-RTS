@@ -81,26 +81,41 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         moneyEntered = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         Screen = new javax.swing.JTextArea();
+        Latte = new javax.swing.JRadioButton();
+        Cappuccino = new javax.swing.JRadioButton();
+        Espresso = new javax.swing.JRadioButton();
+        Mochaccino = new javax.swing.JRadioButton();
+        Mocha = new javax.swing.JRadioButton();
+        Macchiato = new javax.swing.JRadioButton();
+        Sugar = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        Small = new javax.swing.JRadioButton();
+        Medium = new javax.swing.JRadioButton();
+        Large = new javax.swing.JRadioButton();
+        Start = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        status.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         status.setText("Status");
 
         tempreture.setEditable(false);
-        tempreture.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        tempreture.setText("temp");
+        tempreture.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tempreture.setText("temperature");
         tempreture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tempretureActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Tempreture");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Water Tempreture");
 
-        power.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        power.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         power.setText("Power");
 
+        switchPowerBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         switchPowerBtn.setText("Switch Power");
         switchPowerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +123,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
             }
         });
 
+        InsertMoney.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         InsertMoney.setText("Insert Money");
         InsertMoney.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,62 +134,162 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         moneyEntered.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         Screen.setColumns(20);
-        Screen.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        Screen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Screen.setRows(5);
         jScrollPane2.setViewportView(Screen);
+
+        Latte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Latte.setText("Latte");
+
+        Cappuccino.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cappuccino.setText("Cappuccino");
+
+        Espresso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Espresso.setText("Espresso");
+
+        Mochaccino.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Mochaccino.setText("Mochaccino");
+
+        Mocha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Mocha.setText("Mocha");
+
+        Macchiato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Macchiato.setText("Macchiato");
+
+        Sugar.setMaximum(5);
+        Sugar.setValue(0);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Sugar 0->5");
+
+        Small.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Small.setText("Small");
+
+        Medium.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Medium.setText("Medium");
+
+        Large.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Large.setText("Large");
+
+        Start.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Start.setText("Start");
+
+        Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cancel.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(306, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Start))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(239, Short.MAX_VALUE)
+                                .addComponent(Cancel)))
+                        .addGap(70, 70, 70))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(53, 53, 53)
+                                        .addComponent(jLabel2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Medium)
+                                            .addComponent(Small)
+                                            .addComponent(Large))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Sugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Mochaccino)
+                                    .addComponent(Espresso)
+                                    .addComponent(Macchiato)
+                                    .addComponent(Cappuccino)
+                                    .addComponent(Latte)
+                                    .addComponent(Mocha))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(moneyEntered, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InsertMoney, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(77, 77, 77))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
-                                .addGap(32, 32, 32))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addComponent(status))))
-                        .addGap(64, 64, 64))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(switchPowerBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(power)
-                        .addGap(50, 50, 50))))
+                                    .addComponent(power)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(switchPowerBtn)
+                                        .addComponent(status)
+                                        .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(InsertMoney)
+                                .addComponent(moneyEntered, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(61, 61, 61))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(power)
-                    .addComponent(switchPowerBtn))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(status)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(moneyEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(InsertMoney)
-                .addGap(45, 45, 45))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tempreture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(status)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(switchPowerBtn)
+                    .addComponent(power))
+                .addGap(35, 35, 35))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(Start)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Latte)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Cappuccino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Mocha)
+                        .addGap(3, 3, 3)
+                        .addComponent(Espresso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Macchiato)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Mochaccino)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Sugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Small)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Medium)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Large)
+                        .addGap(52, 52, 52)))
+                .addComponent(Cancel)
+                .addGap(56, 56, 56))
         );
 
         pack();
@@ -207,9 +323,22 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancel;
+    private javax.swing.JRadioButton Cappuccino;
+    private javax.swing.JRadioButton Espresso;
     private javax.swing.JButton InsertMoney;
+    private javax.swing.JRadioButton Large;
+    private javax.swing.JRadioButton Latte;
+    private javax.swing.JRadioButton Macchiato;
+    private javax.swing.JRadioButton Medium;
+    private javax.swing.JRadioButton Mocha;
+    private javax.swing.JRadioButton Mochaccino;
     private javax.swing.JTextArea Screen;
+    private javax.swing.JRadioButton Small;
+    private javax.swing.JButton Start;
+    private javax.swing.JSlider Sugar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField moneyEntered;
     private javax.swing.JLabel power;
