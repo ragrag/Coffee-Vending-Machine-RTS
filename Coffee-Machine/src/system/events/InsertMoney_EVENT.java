@@ -9,11 +9,11 @@ package system.events;
  *
  * @author glori
  */
-public class InsertMoneyEvent {
+public class InsertMoney_EVENT {
     private int value;
     private boolean condition;
 
-    public InsertMoneyEvent(int value, boolean condition) {
+    public InsertMoney_EVENT(int value, boolean condition) {
         this.value = value;
         this.condition = condition;
     }

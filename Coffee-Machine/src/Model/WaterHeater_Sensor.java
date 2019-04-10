@@ -16,13 +16,12 @@ import system.views.WaterHeater_VIEW;
  * @author mohamed
  */
 public class WaterHeater_Sensor extends Thread {
-
+    private static WaterHeater_Sensor waterheatersensor = null;
     
-    private WaterTank waterContainer;
+    
 
-    public WaterHeater_Sensor(WaterTank waterContainer) {
+    private WaterHeater_Sensor() {
         
-        this.waterContainer = waterContainer;
         Engine.createStatement("select waterTempreture from WaterHeater_Sensor_READING")
                 .setSubscriber(new Object() {
                     public void update(double temp) throws InterruptedException {
@@ -34,6 +33,14 @@ public class WaterHeater_Sensor extends Thread {
         this.start();
     }
 
+    public static WaterHeater_Sensor getInstance(){
+        if(waterheatersensor!=null)
+            return waterheatersensor;
+        else{
+            waterheatersensor = new WaterHeater_Sensor();
+            return waterheatersensor;
+        }
+    }
     @Override
     public void run() {
         while (true) {
@@ -43,8 +50,11 @@ public class WaterHeater_Sensor extends Thread {
             } catch (InterruptedException ex) {
                 Logger.getLogger(WaterHeater_Sensor.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (CoffeeMachine.getCoffeeMachine().getPowered()) {
-                Engine.sendEvent(new WaterHeater_Sensor_READING(waterContainer.getTempreture()));
+            if (CoffeeMachine.getInstance().getPowered()) {
+                double temprature = WaterTank.getInstance().getTempreture();
+                Engine.sendEvent(new WaterHeater_Sensor_READING(temprature));
+                
+                  
             } else {
                 WaterHeater_VIEW.getWaterHeaterView().setTemp("Heat Sensor Off");
             }

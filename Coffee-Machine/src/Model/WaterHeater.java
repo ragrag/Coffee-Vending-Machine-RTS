@@ -21,18 +21,16 @@ public class WaterHeater extends Thread {
     //private gui;
     private static final WaterHeater waterHeater = new WaterHeater();
     private WaterHeater_Light waterHeaterLight;
-    private WaterHeater_Sensor waterHeaterSensor;
-    private WaterTank waterContainer;
+ 
     private boolean heating;
 
     private WaterHeater() {
 
-        waterContainer = new WaterTank(0);
         waterHeaterLight = new WaterHeater_Light();
-        waterHeaterSensor = new WaterHeater_Sensor(waterContainer);
         WaterHeater_VIEW.getWaterHeaterView().setStatus("Heating");
         heating = true;
-
+        WaterTank.getInstance();
+        WaterHeater_Sensor.getInstance();
        
         this.start();
     }
@@ -53,16 +51,16 @@ public class WaterHeater extends Thread {
     @Override
     public void run() {
         while (true) {
-            if (!CoffeeMachine.getCoffeeMachine().getPowered()) {
+            if (!CoffeeMachine.getInstance().getPowered()) {
                 heating = false;
-                waterContainer.idle();
+                WaterTank.getInstance().idle();
                 WaterHeater_VIEW.getWaterHeaterView().setStatus("Heater turned off");
             } else {
                 if (heating) {
-                    waterContainer.raiseTempreture();
+                    WaterTank.getInstance().raiseTempreture();
                     WaterHeater_VIEW.getWaterHeaterView().setStatus("HEATING");
                 } else if (!heating) {
-                    waterContainer.idle();
+                    WaterTank.getInstance().idle();
                     WaterHeater_VIEW.getWaterHeaterView().setStatus("COOLING");
                 }
             }

@@ -7,8 +7,18 @@ package system.events;
 
 /**
  *
- * @author glori
+ * @author mohamed
  */
-public class Money_Sensor_READING {
-    
+public class Power_EVENT {
+
+    boolean powered;
+
+    public Power_EVENT(boolean powered) {
+        this.powered = powered;
+    }
+
+    public boolean getPowered() {
+        return powered;
+    }
+
 }

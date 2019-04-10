@@ -12,24 +12,53 @@ package Model;
  */
 public class WaterTank {
 
-    private double tempreture;
-
-    public WaterTank(double tempreture) {
-        this.tempreture = tempreture;
-
+    private double temperature;
+    private int quantity;
+    private static  WaterTank watertank;
+    
+    public static WaterTank getInstance(){
+    
+        if(watertank!= null){
+        
+            return watertank;
+        }
+        else{
+        
+        
+            watertank= new WaterTank(0, 200);
+            return watertank;
+        
+        }
+    
+    
     }
 
+    private WaterTank(double temperature, int quantity) {
+        this.temperature = temperature;
+        this.quantity = quantity;
+    }
+
+
+
     public double getTempreture() {
-        return tempreture;
+        return temperature;
     }
 
     void raiseTempreture() {
 
-        tempreture += 7.8;
+        temperature += 7.8;
     }
 
     public void idle() {
-        tempreture = tempreture - 5 < 0 ? 0 : tempreture - 5;
+        temperature = temperature - 5 < 0 ? 0 : temperature - 5;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 }

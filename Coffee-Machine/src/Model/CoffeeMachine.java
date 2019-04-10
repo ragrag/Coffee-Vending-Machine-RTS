@@ -14,13 +14,13 @@ import system.views.WaterHeater_VIEW;
  */
 public class CoffeeMachine {
 
-    private static final CoffeeMachine waterHeaterView = new CoffeeMachine();
+    private static CoffeeMachine coffeeMachine = null;;
     private boolean powered;
 
     private CoffeeMachine() {
         this.powered = true;
         WaterHeater_VIEW.getWaterHeaterView().setPower(powered);
-        Engine.createStatement("select powered from PowerEvent")
+        Engine.createStatement("select powered from Power_EVENT")
                 .setSubscriber(new Object() {
                     public void update(boolean power) throws InterruptedException {
                         System.out.println("Machine Power state changed ");
@@ -39,8 +39,11 @@ public class CoffeeMachine {
         powered = !powered;
     }
 
-    public static CoffeeMachine getCoffeeMachine() {
-        return waterHeaterView;
+    public static CoffeeMachine getInstance() {
+        if(coffeeMachine != null)
+            return coffeeMachine;
+        else
+            return coffeeMachine = new  CoffeeMachine();
     }
 
 }

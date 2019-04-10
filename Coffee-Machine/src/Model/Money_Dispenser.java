@@ -6,7 +6,7 @@
 package Model;
 
 import backend.event.engine.Engine;
-import system.events.InsertMoneyEvent;
+import system.events.InsertMoney_EVENT;
 import system.views.WaterHeater_VIEW;
 
 /**
@@ -16,11 +16,10 @@ import system.views.WaterHeater_VIEW;
 
 
 public class Money_Dispenser {
-    private static Money_Dispenser moneyDispenser;
+    private static Money_Dispenser moneyDispenser = null;
     
     private Money_Dispenser(){
     }
-    
     public static Money_Dispenser getMoneyDispenser(){
         if (moneyDispenser!=null)
             return moneyDispenser;
@@ -31,7 +30,7 @@ public class Money_Dispenser {
         }
     }
     public void swallow(){
-        Engine.sendEvent(new InsertMoneyEvent(Integer.parseInt(WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().getText()),true));
+        Engine.sendEvent(new InsertMoney_EVENT(Integer.parseInt(WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().getText()),true));
     }
     
     public void dispenseMoney(){

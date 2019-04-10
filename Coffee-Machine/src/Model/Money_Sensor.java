@@ -6,6 +6,7 @@
 package Model;
 
 import backend.event.engine.Engine;
+import java.util.Random;
 import system.views.WaterHeater_VIEW;
 
 /**
@@ -14,10 +15,35 @@ import system.views.WaterHeater_VIEW;
  */
 public class Money_Sensor {
 
-    public Money_Sensor() {
-        Engine.createStatement("select value, condition from InsertMoneyEvent")
+    
+    
+    private static  Money_Sensor moneySensor;
+    
+    public static Money_Sensor getInstance(){
+    
+        if(moneySensor!= null){
+        
+            return moneySensor;
+        }
+        else{
+        
+        
+            moneySensor= new Money_Sensor();
+            return moneySensor;
+        
+        }
+    
+    
+    }
+
+
+    
+    private Money_Sensor() {
+        Engine.createStatement("select value, condition from InsertMoney_EVENT")
                 .setSubscriber(new Object() {
                     public void update(int value, boolean condition) throws InterruptedException {
+                        Random r=new Random();
+                        condition =r.nextBoolean();
                         System.out.println("Money value: " + value);
                         System.out.println("Money condition: " + condition);
                         MoneyHandler.getMoneyHandler().setValue(value);
