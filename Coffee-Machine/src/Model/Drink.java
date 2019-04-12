@@ -47,12 +47,12 @@ public class Drink {
         Drink mocha = new Drink("mocha",2,1,1);
         Drink latte = new Drink("latte",2,1,1);
         Drink machiatto = new Drink("machiatto",2,1,1);
-        Drink mochaccino = new Drink("mochaccino",2,1,1);
+        Drink americano = new Drink("americano",2,1,1);
         Drink cappuccino = new Drink("cappuccino",2,1,1);
         
         allDrinks.add(mocha);
         allDrinks.add(espresso);
-        allDrinks.add(mochaccino);
+        allDrinks.add(americano);
         allDrinks.add(machiatto);
         allDrinks.add(latte);
         allDrinks.add(cappuccino);

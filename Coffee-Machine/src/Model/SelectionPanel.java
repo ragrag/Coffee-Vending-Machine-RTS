@@ -22,7 +22,7 @@ public class SelectionPanel extends Thread {
 
     Boolean mochabutton = false;
     Boolean espressobutton = false;
-    Boolean mochaccinobutton = false;
+    Boolean americanobutton = false;
     Boolean machiattobutton = false;
     Boolean cappuccinobutton = false;
     Boolean lattebutton = false;
@@ -46,7 +46,7 @@ public class SelectionPanel extends Thread {
         }
     }
 
-    public void ActivateButtons(Boolean mochabutton, Boolean espressobutton, Boolean mochaccinobutton,
+    public void ActivateButtons(Boolean mochabutton, Boolean espressobutton, Boolean americanobutton,
             Boolean machiattobutton, Boolean cappuccinobutton, Boolean lattebutton, Boolean sugar,
             Boolean small, Boolean medium, Boolean large) {
 
@@ -55,7 +55,7 @@ public class SelectionPanel extends Thread {
         this.lattebutton = lattebutton;
         this.machiattobutton = machiattobutton;
         this.mochabutton = mochabutton;
-        this.mochaccinobutton = mochaccinobutton;
+        this.americanobutton = americanobutton;
         
         this.medium = medium;
         this.large = large;
@@ -77,7 +77,7 @@ public class SelectionPanel extends Thread {
                 System.out.println("Mocha" + mochabutton);
                 WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(0), mochabutton);
                 WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(1), espressobutton);
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), mochaccinobutton);
+                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), americanobutton);
                 WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(3), machiattobutton);
                 WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(4), lattebutton );
                 WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(5), cappuccinobutton);

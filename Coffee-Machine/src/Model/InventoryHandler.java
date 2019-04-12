@@ -41,7 +41,7 @@ public class InventoryHandler {
     //System.out.println("AAASSSSSSSSSSSSSSSSSSBBBBBBBBBBBB" );
          ArrayList<Drink> allDrinks = Drink.getDrinks();
          //System.out.println("AAASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSss" );
-         boolean mocha = false,espresso = false,mochaccino = false, machiatto = false ,cappuccino = false,latte = false,sugar=false,small=false,medium=false,large=false;
+         boolean mocha = false,espresso = false,americano = false, machiatto = false ,cappuccino = false,latte = false,sugar=false,small=false,medium=false,large=false;
          for (Drink v : allDrinks)
          {
              
@@ -54,9 +54,9 @@ public class InventoryHandler {
                     case "espresso":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
                         espresso = true;;
-                    case "mochaccino":
+                    case "americano":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
-                        mochaccino = true;
+                        americano = true;
                     case "machiatto":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
                         machiatto = true;
@@ -78,7 +78,7 @@ public class InventoryHandler {
              medium=true;
          if(largeamount>=1)
              large=true;
-         SelectionPanel.getInsatance().ActivateButtons(mocha, espresso, cappuccino, machiatto, mochaccino, latte,sugar,small,medium,large);
+         SelectionPanel.getInsatance().ActivateButtons(mocha, espresso, cappuccino, machiatto, americano, latte,sugar,small,medium,large);
      
      }
 }
