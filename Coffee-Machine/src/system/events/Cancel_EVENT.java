@@ -10,5 +10,15 @@ package system.events;
  * @author ragrag
  */
 public class Cancel_EVENT {
+    Boolean cancel;
+
+    public Cancel_EVENT(Boolean cancel) {
+        this.cancel = cancel;
+    }
+
+    public Boolean getCancel() {
+        return cancel;
+    }
+    
     
 }

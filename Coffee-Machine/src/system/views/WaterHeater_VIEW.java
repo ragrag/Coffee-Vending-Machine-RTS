@@ -176,6 +176,11 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Cancel.setText("Cancel");
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
         getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, 110, 50));
 
         Latte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/2.jpg"))); // NOI18N
@@ -233,12 +238,27 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 200));
 
         small.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/small.jpg"))); // NOI18N
+        small.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                smallActionPerformed(evt);
+            }
+        });
         getContentPane().add(small, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 115, 175));
 
         medium.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/medium.jpg"))); // NOI18N
+        medium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediumActionPerformed(evt);
+            }
+        });
         getContentPane().add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 115, 175));
 
         large.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/large.jpg"))); // NOI18N
+        large.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                largeActionPerformed(evt);
+            }
+        });
         getContentPane().add(large, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 115, 175));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"))); // NOI18N
@@ -261,6 +281,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
     private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_StartActionPerformed
 
     private void LatteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatteActionPerformed
@@ -298,6 +319,26 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
         Engine.sendEvent(new SelectSuger_EVENT(Sugar.getValue()));
     }//GEN-LAST:event_SugarStateChanged
+
+    private void smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smallActionPerformed
+        // TODO add your handling code here:
+        Engine.sendEvent(new SelectSize_EVENT(1));
+    }//GEN-LAST:event_smallActionPerformed
+
+    private void mediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumActionPerformed
+        // TODO add your handling code here:
+        Engine.sendEvent(new SelectSize_EVENT(2));
+    }//GEN-LAST:event_mediumActionPerformed
+
+    private void largeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_largeActionPerformed
+        // TODO add your handling code here:
+        Engine.sendEvent(new SelectSize_EVENT(3));
+    }//GEN-LAST:event_largeActionPerformed
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        // TODO add your handling code here:
+        Engine.sendEvent(new Cancel_EVENT(true));
+    }//GEN-LAST:event_CancelActionPerformed
 
     /**
      * @param args the command line arguments

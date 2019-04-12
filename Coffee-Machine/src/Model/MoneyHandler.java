@@ -20,6 +20,7 @@ public class MoneyHandler extends Thread {
     
     private static MoneyHandler moneyHandler;
     private MoneyHandler(){
+        resetBalance();
         this.start();
         Money_Sensor.getInstance();
     }
@@ -43,6 +44,18 @@ public class MoneyHandler extends Thread {
         this.condition = condition;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+    
+    public void resetBalance(){
+        balance=0;
+    }
+    
     public void autheniecateMoney(){
 
     if(condition != null){
@@ -63,7 +76,9 @@ public class MoneyHandler extends Thread {
                         value = 0;
                         condition = null;
                         System.out.println("The balance equal "+balance);
+                        TransactionProcessor.getInstance().setBalance(balance);
                         WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
+                        
                     }
                     else{
                         Money_Dispenser.getMoneyDispenser().dispenseMoney();
@@ -79,12 +94,21 @@ public class MoneyHandler extends Thread {
                 
     }
     
+    public void returnMoneyToUser(int money){
+        System.out.println("Take your money "+money);
+        balance = 0;
+        Money_Dispenser.getMoneyDispenser().dispenseMoney();
+        
+        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
+        
+    }
+    
     @Override
     public void run() {
         while(true){
             autheniecateMoney();
             try {
-                this.sleep(2000);
+                this.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
             }

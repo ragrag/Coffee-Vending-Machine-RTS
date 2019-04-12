@@ -58,6 +58,21 @@ public class SelectionPanel extends Thread {
                     }
                 });
          
+         Engine.createStatement("select startOrder from Start_EVENT")
+                .setSubscriber(new Object() {
+                    public void update(Boolean startOrder) throws InterruptedException {
+                        System.out.println("startOrder: "+startOrder);
+                        TransactionProcessor.getInstance().startOrder();
+                    }
+                });
+         Engine.createStatement("select cancel from Cancel_EVENT")
+                .setSubscriber(new Object() {
+                    public void update(Boolean cancel) throws InterruptedException {
+                        System.out.println("cancel: "+cancel);
+                        TransactionProcessor.getInstance().cancel();
+                    }
+                });
+         
         this.start();
     }
 

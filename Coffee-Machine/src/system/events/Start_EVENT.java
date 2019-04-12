@@ -10,5 +10,15 @@ package system.events;
  * @author ragrag
  */
 public class Start_EVENT {
+    Boolean startOrder;
+
+    public Start_EVENT(Boolean startOrder) {
+        this.startOrder = startOrder;
+    }
+
+    public Boolean getStartOrder() {
+        return startOrder;
+    }
+    
     
 }
