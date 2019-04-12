@@ -22,7 +22,7 @@ public class InventoryStorage {
         this.sugar = 20;
         this.milk = 20;
         this.coffee = 20;
-        this.water = WaterTank.getInstance().getQuantity();
+        this.water = InventoryHandler.getInsatance().getWaterQuantity();
         this.chocolate = 20;
         this.small = 30;
         this.medium = 30;
@@ -40,6 +40,19 @@ public static InventoryStorage getInstance(){
     }
 }
 
+    public boolean releaseIngredients(int sugar, int milk,int coffee, int chocolate,int size){
+        if(size==1)
+            small--;
+        else if(size==2)
+            medium--;
+        else if(size==3)
+            large--;
+        this.sugar-=sugar;
+        this.milk-=milk;
+        this.coffee-=coffee;
+        this.chocolate-=chocolate;
+        return true;
+    }
     public int getSugar() {
         return sugar;
     }

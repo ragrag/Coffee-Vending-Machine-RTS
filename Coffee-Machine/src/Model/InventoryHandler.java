@@ -37,6 +37,15 @@ public class InventoryHandler {
             return true;
         return false;
     }
+    
+    public int getWaterQuantity(){
+        return WaterTank.getInstance().getQuantity();
+    }
+    public boolean releaseIngredients(int coffee,int chocolate,int milk,int sugar, int size){
+        return (WaterTank.getInstance().releaseWater(200 + ((size-1)*100))&& InventoryStorage.getInstance().releaseIngredients(sugar, milk, coffee, chocolate, size));
+        
+    }
+    
      public void Recivequantity(int wateramount,int coffeamount,int sugaramount, int chocolateamount,int milkquantity,int smallamount,int mediumamount,int largeamount){
     //System.out.println("AAASSSSSSSSSSSSSSSSSSBBBBBBBBBBBB" );
          ArrayList<Drink> allDrinks = Drink.getDrinks();
