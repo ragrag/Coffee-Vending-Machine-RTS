@@ -86,18 +86,18 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         Screen = new javax.swing.JTextArea();
         Sugar = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
-        Small = new javax.swing.JRadioButton();
-        Medium = new javax.swing.JRadioButton();
-        Large = new javax.swing.JRadioButton();
         Start = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         Latte = new javax.swing.JButton();
         Americano = new javax.swing.JButton();
         Macchiato = new javax.swing.JButton();
         Cappuccino = new javax.swing.JButton();
         Espresso = new javax.swing.JButton();
         Mocha = new javax.swing.JButton();
+        small = new javax.swing.JButton();
+        medium = new javax.swing.JButton();
+        large = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,7 +122,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         power.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         power.setText("Power");
-        getContentPane().add(power, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 390, -1, -1));
+        getContentPane().add(power, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 370, -1, -1));
 
         switchPowerBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         switchPowerBtn.setText("Switch Power");
@@ -131,7 +131,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 switchPowerBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(switchPowerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 380, -1, -1));
+        getContentPane().add(switchPowerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 370, -1, -1));
 
         InsertMoney.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         InsertMoney.setText("Insert Money");
@@ -159,23 +159,11 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 SugarStateChanged(evt);
             }
         });
-        getContentPane().add(Sugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, -1, -1));
+        getContentPane().add(Sugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Sugar 0->5");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 110, 20));
-
-        Small.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Small.setText("Small");
-        getContentPane().add(Small, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
-
-        Medium.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Medium.setText("Medium");
-        getContentPane().add(Medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
-
-        Large.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Large.setText("Large");
-        getContentPane().add(Large, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 110, 20));
 
         Start.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Start.setText("Start");
@@ -188,71 +176,73 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Cancel.setText("Cancel");
-        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 370, 110, 50));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"))); // NOI18N
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 800, 430));
+        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, 110, 50));
 
         Latte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/2.jpg"))); // NOI18N
-        Latte.setText("Mchiatto");
         Latte.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Latte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LatteActionPerformed(evt);
             }
         });
-        getContentPane().add(Latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 180, 230));
+        getContentPane().add(Latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 200, 200));
 
         Americano.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/1.jpg"))); // NOI18N
-        Americano.setText("jButton2");
         Americano.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Americano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmericanoActionPerformed(evt);
             }
         });
-        getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 220, 220));
+        getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 200));
 
         Macchiato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/3.jpg"))); // NOI18N
-        Macchiato.setText("jButton3");
         Macchiato.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Macchiato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MacchiatoActionPerformed(evt);
             }
         });
-        getContentPane().add(Macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 180, 230));
+        getContentPane().add(Macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 200, 200));
 
         Cappuccino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/4.jpg"))); // NOI18N
-        Cappuccino.setText("jButton4");
         Cappuccino.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Cappuccino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CappuccinoActionPerformed(evt);
             }
         });
-        getContentPane().add(Cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 200, 220));
+        getContentPane().add(Cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 200));
 
         Espresso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/5.jpg"))); // NOI18N
-        Espresso.setText("jButton5");
         Espresso.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Espresso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EspressoActionPerformed(evt);
             }
         });
-        getContentPane().add(Espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 180, 220));
+        getContentPane().add(Espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 200, 200));
 
         Mocha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/6.jpg"))); // NOI18N
-        Mocha.setText("jButton6");
         Mocha.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Mocha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MochaActionPerformed(evt);
             }
         });
-        getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 210));
+        getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 200));
+
+        small.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/small.jpg"))); // NOI18N
+        getContentPane().add(small, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 115, 175));
+
+        medium.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/medium.jpg"))); // NOI18N
+        getContentPane().add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 115, 175));
+
+        large.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/large.jpg"))); // NOI18N
+        getContentPane().add(large, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 115, 175));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -399,20 +389,20 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         return InsertMoney;
     }
 
-    public JRadioButton getLarge() {
-        return Large;
-    }
-
-
-    public JRadioButton getMedium() {
-        return Medium;
-    }
-
-    
-
-    public JRadioButton getSmall() {
-        return Small;
-    }
+//    public JRadioButton getLarge() {
+//        return Large;
+//    }
+//
+//
+//    public JRadioButton getMedium() {
+//        return Medium;
+//    }
+//
+//    
+//
+//    public JRadioButton getSmall() {
+//        return Small;
+//    }
 
     public JButton getStart() {
         return Start;
@@ -457,21 +447,21 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     private javax.swing.JButton Cappuccino;
     private javax.swing.JButton Espresso;
     private javax.swing.JButton InsertMoney;
-    private javax.swing.JRadioButton Large;
     private javax.swing.JButton Latte;
     private javax.swing.JButton Macchiato;
-    private javax.swing.JRadioButton Medium;
     private javax.swing.JButton Mocha;
     private javax.swing.JTextArea Screen;
-    private javax.swing.JRadioButton Small;
     private javax.swing.JButton Start;
     private javax.swing.JSlider Sugar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton large;
+    private javax.swing.JButton medium;
     private javax.swing.JTextField moneyEntered;
     private javax.swing.JLabel power;
+    private javax.swing.JButton small;
     private javax.swing.JLabel status;
     private javax.swing.JButton switchPowerBtn;
     private javax.swing.JTextField tempreture;
