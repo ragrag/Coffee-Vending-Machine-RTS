@@ -32,6 +32,7 @@ public class Main {
         WaterHeater.getWaterHeater();
         MoneyHandler.getMoneyHandler();
         InventoryHandler.getInsatance();
+        TransactionProcessor.getInstance();
         
         // Create Kettle
 

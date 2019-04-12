@@ -14,19 +14,30 @@ import java.util.ArrayList;
 public class Drink {
    
     private static ArrayList<Drink> allDrinks = new ArrayList<Drink>();
-    
+    int price;
     String name;
     int coffee;
     int milk;
     int chocolate;
-    private Drink(String name, int coffee,int milk , int chocolate){
+    private Drink(String name, int coffee,int milk , int chocolate,int price){
         this.name = name;
         this.coffee = coffee;
         this.milk = milk;
         this.chocolate=  chocolate;
+        this.price=price;
         
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+    
+    
     public int getCoffee() {
         return coffee;
     }
@@ -43,12 +54,12 @@ public class Drink {
     }
     
     private static  void initializeDrinks(){
-        Drink espresso = new Drink("espresso",2,4,5);
-        Drink mocha = new Drink("mocha",2,1,1);
-        Drink latte = new Drink("latte",2,1,1);
-        Drink machiatto = new Drink("machiatto",2,1,1);
-        Drink americano = new Drink("americano",2,1,1);
-        Drink cappuccino = new Drink("cappuccino",2,1,1);
+        Drink espresso = new Drink("espresso",2,4,5,5);
+        Drink mocha = new Drink("mocha",2,1,1,10);
+        Drink latte = new Drink("latte",2,1,1,15);
+        Drink machiatto = new Drink("machiatto",2,1,1,25);
+        Drink americano = new Drink("americano",2,1,1,10);
+        Drink cappuccino = new Drink("cappuccino",2,1,1,15);
         
         allDrinks.add(mocha);
         allDrinks.add(espresso);

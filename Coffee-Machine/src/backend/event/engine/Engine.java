@@ -24,6 +24,11 @@ public class Engine {
         engine.getEPAdministrator().getConfiguration().addEventType(Power_EVENT.class);
         engine.getEPAdministrator().getConfiguration().addEventType(InsertMoney_EVENT.class);
         engine.getEPAdministrator().getConfiguration().addEventType(Inventory_Sensor_READING.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(SelectDrink_EVENT.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(SelectSize_EVENT.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(SelectSuger_EVENT.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(Start_EVENT.class);
+        engine.getEPAdministrator().getConfiguration().addEventType(Cancel_EVENT.class);
         System.out.println("Events Successfully Registered.");
     }
 

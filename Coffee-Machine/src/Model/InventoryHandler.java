@@ -50,7 +50,7 @@ public class InventoryHandler {
             switch(v.name){
                     case "mocha":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
-                        mocha = true;
+                        mocha = false;
                     case "espresso":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
                         espresso = true;;

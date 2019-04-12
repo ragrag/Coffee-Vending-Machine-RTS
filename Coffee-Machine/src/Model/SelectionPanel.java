@@ -7,6 +7,7 @@ package Model;
 
 import backend.event.engine.Engine;
 import static java.lang.Thread.sleep;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.WaterHeater_Sensor_READING;
@@ -32,6 +33,31 @@ public class SelectionPanel extends Thread {
     Boolean large = false;
 
     public SelectionPanel() {
+        
+         Engine.createStatement("select drink from SelectDrink_EVENT")
+                .setSubscriber(new Object() {
+                    public void update(Drink d) throws InterruptedException {
+                        System.out.println("drink: "+ d.getName());
+                        TransactionProcessor.getInstance().setDrink(d);
+                    }
+                });
+         
+         Engine.createStatement("select sugerSelection from SelectSuger_EVENT")
+                .setSubscriber(new Object() {
+                    public void update(int suger) throws InterruptedException {
+                        System.out.println("suger: "+ suger);
+                        TransactionProcessor.getInstance().setSuger(suger);
+                    }
+                });
+        
+         Engine.createStatement("select size from SelectSize_EVENT")
+                .setSubscriber(new Object() {
+                    public void update(int size) throws InterruptedException {
+                        System.out.println("size: "+size);
+                        TransactionProcessor.getInstance().setSize(size);
+                    }
+                });
+         
         this.start();
     }
 
@@ -75,12 +101,18 @@ public class SelectionPanel extends Thread {
             }
             if (CoffeeMachine.getInstance().getPowered()) {
                 System.out.println("Mocha" + mochabutton);
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(0), mochabutton);
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(1), espressobutton);
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), americanobutton);
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(3), machiattobutton);
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(4), lattebutton );
-                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(5), cappuccinobutton);
+                WaterHeater_VIEW.getWaterHeaterView().getAmericano().setEnabled(this.americanobutton);
+                WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setEnabled(this.cappuccinobutton);
+                WaterHeater_VIEW.getWaterHeaterView().getEspresso().setEnabled(this.espressobutton);
+                WaterHeater_VIEW.getWaterHeaterView().getLatte().setEnabled(this.lattebutton);
+                WaterHeater_VIEW.getWaterHeaterView().getMocha().setEnabled(this.mochabutton);
+                WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setEnabled(this.machiattobutton);
+//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(0), mochabutton);
+//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(1), espressobutton);
+//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), americanobutton);
+//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(3), machiattobutton);
+//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(4), lattebutton );
+//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(5), cappuccinobutton);
           
             } else {
 
