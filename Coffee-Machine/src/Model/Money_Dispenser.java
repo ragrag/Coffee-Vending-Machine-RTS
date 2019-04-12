@@ -15,33 +15,33 @@ import system.views.WaterHeater_VIEW;
  *
  * @author glori
  */
-
-
 public class Money_Dispenser {
+
     private static Money_Dispenser moneyDispenser = null;
     
-    private Money_Dispenser(){
+    private Money_Dispenser() {
     }
-    public static Money_Dispenser getMoneyDispenser(){
-        if (moneyDispenser!=null)
+
+    public static Money_Dispenser getMoneyDispenser() {
+        if (moneyDispenser != null) {
             return moneyDispenser;
-        else
-        {
+        } else {
             moneyDispenser = new Money_Dispenser();
             return moneyDispenser;
         }
     }
-    public void swallow(){
-        if("".equals(WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().getText())){
+
+    public void swallow() {
+        if ("".equals(WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().getText())) {
             System.out.println("Please Enter Money First");
-            WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("Please Enter Money First");}
-        else{
-        Engine.sendEvent(new InsertMoney_EVENT(Integer.parseInt(WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().getText()),true));
-        WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().setText("");
+            WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("Please Enter Money First");
+        } else {
+            Engine.sendEvent(new InsertMoney_EVENT(Integer.parseInt(WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().getText()), true));
+            WaterHeater_VIEW.getWaterHeaterView().getMoneyEntered().setText("");
         }
     }
     
-    public void dispenseMoney(){
+    public void dispenseMoney() {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
@@ -49,6 +49,5 @@ public class Money_Dispenser {
         }
         
     }
-    
     
 }

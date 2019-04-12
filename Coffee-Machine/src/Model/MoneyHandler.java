@@ -108,7 +108,7 @@ public class MoneyHandler extends Thread {
         while(true){
             autheniecateMoney();
             try {
-                this.sleep(1000);
+                this.sleep(500);
             } catch (InterruptedException ex) {
                 Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
             }
