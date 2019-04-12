@@ -21,11 +21,16 @@ public class CoffeeMachine {
         
         this.powered = true;
         SelectionPanel.getInsatance();
-            WaterHeater.getWaterHeater();
-            MoneyHandler.getMoneyHandler();
-            InventoryHandler.getInsatance();
-            TransactionProcessor.getInstance();
+        WaterHeater.getWaterHeater();
+        MoneyHandler.getMoneyHandler();
+        InventoryHandler.getInsatance();
+        TransactionProcessor.getInstance();
+        Mixer.getInstance();
         WaterHeater_VIEW.getWaterHeaterView().setPower(powered);
+        
+        
+        
+        
         Engine.createStatement("select powered from Power_EVENT")
                 .setSubscriber(new Object() {
                     public void update(boolean power) throws InterruptedException {

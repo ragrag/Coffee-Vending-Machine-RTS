@@ -106,13 +106,28 @@ public class TransactionProcessor extends Thread {
                         } else {
                             state = true;
                         }
-                    } else if(state == true){
+                    } else if (state == true) {
                         //insiateOrderProccessing
+                        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
                         CoffeeMachine.getInstance().disableBottuns();
+
+                        Thread t = new Thread() {
+                            public void run() {
+                                Mixer.getInstance().dispatchIngredients(suger, size, drink);
+                            }
+                        };
+                        t.start();
+
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(TransactionProcessor.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
                         //start code
                         CoffeeMachine.getInstance().enableBottuns();
-                        resetTransaction();
                         MoneyHandler.getMoneyHandler().returnMoneyToUser(change);
+                        resetTransaction();
                     }
                 }
             } else {
@@ -127,5 +142,5 @@ public class TransactionProcessor extends Thread {
         }
 
     }
-    
+
 }

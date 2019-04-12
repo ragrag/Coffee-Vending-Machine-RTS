@@ -282,7 +282,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
     private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
         // TODO add your handling code here:
-        
+        Engine.sendEvent(new Start_EVENT(true));
     }//GEN-LAST:event_StartActionPerformed
 
     private void LatteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatteActionPerformed

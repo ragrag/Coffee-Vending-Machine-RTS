@@ -115,6 +115,8 @@ public class SelectionPanel extends Thread {
                 Logger.getLogger(WaterHeater_Sensor.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (CoffeeMachine.getInstance().getPowered()) {
+                
+                
                 System.out.println("Mocha" + mochabutton);
                 WaterHeater_VIEW.getWaterHeaterView().getAmericano().setEnabled(this.americanobutton);
                 WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setEnabled(this.cappuccinobutton);

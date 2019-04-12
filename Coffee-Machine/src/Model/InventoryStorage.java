@@ -16,13 +16,13 @@ public class InventoryStorage {
     private int water;
     private int chocolate;
     private int small,medium,large;
-    private static InventoryStorage inventorystorage;
+    private static InventoryStorage inventorystorage=null;
 
     private InventoryStorage() {
         this.sugar = 20;
         this.milk = 20;
         this.coffee = 20;
-        this.water = InventoryHandler.getInsatance().getWaterQuantity();
+        this.water = WaterTank.getInstance().getQuantity();
         this.chocolate = 20;
         this.small = 30;
         this.medium = 30;
@@ -78,12 +78,13 @@ public static InventoryStorage getInstance(){
     }
 
     public int getWater() {
-        return water=  WaterTank.getInstance().getQuantity();
+        return water;
     }
 
     public void setWater(int water) {
-        WaterTank.getInstance().setQuantity(water);
-        getWater();
+        this.water = water;
+        InventoryHandler.getInsatance().setWaterQuantity(water);
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAa"+ this.water);
     }
 
     public int getChocolate() {
@@ -98,9 +99,7 @@ public static InventoryStorage getInstance(){
         return inventorystorage;
     }
 
-    public static void setInventorystorage(InventoryStorage inventorystorage) {
-        InventoryStorage.inventorystorage = inventorystorage;
-    }
+
 
     public int getSmall() {
         return small;

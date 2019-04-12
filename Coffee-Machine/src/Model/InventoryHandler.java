@@ -16,8 +16,8 @@ public class InventoryHandler {
     private static InventoryHandler inventoryhandler;
     
     private InventoryHandler() {
-        IngredientsSensor.getInstance();
         InventoryStorage.getInstance();
+        IngredientsSensor.getInstance();
     }
     public static InventoryHandler getInsatance(){
     
@@ -41,25 +41,30 @@ public class InventoryHandler {
     public int getWaterQuantity(){
         return WaterTank.getInstance().getQuantity();
     }
+    
+    public void setWaterQuantity(int water){
+        WaterTank.getInstance().setQuantity(water);
+    }
+    
     public boolean releaseIngredients(int coffee,int chocolate,int milk,int sugar, int size){
         return (WaterTank.getInstance().releaseWater(200 + ((size-1)*100))&& InventoryStorage.getInstance().releaseIngredients(sugar, milk, coffee, chocolate, size));
-        
     }
     
      public void Recivequantity(int wateramount,int coffeamount,int sugaramount, int chocolateamount,int milkquantity,int smallamount,int mediumamount,int largeamount){
     //System.out.println("AAASSSSSSSSSSSSSSSSSSBBBBBBBBBBBB" );
          ArrayList<Drink> allDrinks = Drink.getDrinks();
+         System.out.println(coffeamount+ " "+chocolateamount+" "+milkquantity);
+                 
+                 
          //System.out.println("AAASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSss" );
          boolean mocha = false,espresso = false,americano = false, machiatto = false ,cappuccino = false,latte = false,sugar=false,small=false,medium=false,large=false;
          for (Drink v : allDrinks)
          {
-             
-             
-             
+ 
             switch(v.name){
                     case "mocha":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
-                        mocha = false;
+                        mocha = true;
                     case "espresso":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
                         espresso = true;;
@@ -87,6 +92,7 @@ public class InventoryHandler {
              medium=true;
          if(largeamount>=1)
              large=true;
+         //SelectionPanel.getInsatance().ActivateButtons(mocha, espresso, cappuccino, machiatto, americano, latte,sugar,small,medium,large);
          SelectionPanel.getInsatance().ActivateButtons(mocha, espresso, cappuccino, machiatto, americano, latte,sugar,small,medium,large);
      
      }

@@ -70,6 +70,7 @@ public class Drink {
     }
     public static  ArrayList<Drink> getDrinks()
     {
+        System.err.println("SSSSSSSSSSS");
         if (allDrinks.size() > 0)
             return allDrinks;
         else {

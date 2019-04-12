@@ -23,19 +23,15 @@ public class WaterTank {
             return watertank;
         }
         else{
-        
-        
-            watertank= new WaterTank(0, 200);
-            return watertank;
-        
+            return watertank= new WaterTank();
         }
     
     
     }
 
-    private WaterTank(double temperature, int quantity) {
-        this.temperature = temperature;
-        this.quantity = quantity;
+    private WaterTank() {
+        this.temperature = 0;
+        this.quantity = 200;
     }
 
 
@@ -60,5 +56,9 @@ public class WaterTank {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
+    
+    public boolean releaseWater(int water){
+        this.quantity-=water;
+        return true;
+    }
 }
