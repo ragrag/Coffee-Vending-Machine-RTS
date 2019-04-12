@@ -193,7 +193,6 @@
           <Font name="Tahoma" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Americano"/>
-        <Property name="actionCommand" type="java.lang.String" value="Americano"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -322,7 +321,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\5.jpg"/>
+          <Image iconType="3" name="/system/views/5.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -341,7 +340,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\3.jpg"/>
+          <Image iconType="3" name="/system/views/3.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -357,7 +356,7 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\6.jpg"/>
+          <Image iconType="3" name="/system/views/6.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel5"/>
       </Properties>
@@ -370,7 +369,7 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\1.jpg"/>
+          <Image iconType="3" name="/system/views/1.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel7"/>
       </Properties>
@@ -383,7 +382,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\2.jpg"/>
+          <Image iconType="3" name="/system/views/2.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel6"/>
       </Properties>
@@ -396,7 +395,7 @@
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\4.jpg"/>
+          <Image iconType="3" name="/system/views/4.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel8"/>
       </Properties>
@@ -409,7 +408,7 @@
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\glori\Desktop\coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"/>
+          <Image iconType="3" name="/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel10"/>
       </Properties>

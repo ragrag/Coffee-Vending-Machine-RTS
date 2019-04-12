@@ -169,7 +169,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         Americano.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         Americano.setText("Americano");
-        Americano.setActionCommand("Americano");
         getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 150, 40));
 
         Mocha.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -213,7 +212,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         Cancel.setText("Cancel");
         getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 370, 110, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\5.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/5.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         jLabel4.setNextFocusableComponent(Espresso);
 
@@ -222,28 +221,28 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 190, 210));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\3.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/3.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setMinimumSize(new java.awt.Dimension(220, 220));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 220));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\6.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/6.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 200, 220));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\1.jpg")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/1.jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 210, 210));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\2.jpg")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/2.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 180, 220));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\4.jpg")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/4.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 200, 210));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\glori\\Desktop\\coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"))); // NOI18N
         jLabel10.setText("jLabel10");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 900, 430));
 
