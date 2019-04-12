@@ -108,7 +108,11 @@ public class TransactionProcessor extends Thread {
                         }
                     } else if(state == true){
                         //insiateOrderProccessing
-
+                        CoffeeMachine.getInstance().disableBottuns();
+                        //start code
+                        CoffeeMachine.getInstance().enableBottuns();
+                        resetTransaction();
+                        MoneyHandler.getMoneyHandler().returnMoneyToUser(change);
                     }
                 }
             } else {
@@ -123,5 +127,5 @@ public class TransactionProcessor extends Thread {
         }
 
     }
-
+    
 }

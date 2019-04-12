@@ -19,7 +19,7 @@ import system.views.WaterHeater_VIEW;
 public class WaterHeater extends Thread {
 
     //private gui;
-    private static final WaterHeater waterHeater = new WaterHeater();
+    private static WaterHeater waterHeater = new WaterHeater();
     private WaterHeater_Light waterHeaterLight;
  
     private boolean heating;
@@ -72,4 +72,6 @@ public class WaterHeater extends Thread {
         }
     }
 
+    
+      
 }

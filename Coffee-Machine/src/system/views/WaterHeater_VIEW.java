@@ -38,6 +38,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
             this.power.setForeground(Color.GREEN);
         } else if (pow == "OFF") {
             this.power.setForeground(Color.RED);
+            
         }
     }
 
@@ -479,6 +480,18 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
     public JButton getMocha() {
         return Mocha;
+    }
+
+    public JButton getLarge() {
+        return large;
+    }
+
+    public JButton getMedium() {
+        return medium;
+    }
+
+    public JButton getSmall() {
+        return small;
     }
     
     
