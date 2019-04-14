@@ -7,6 +7,7 @@ package Model;
 
 import backend.event.engine.Engine;
 import java.awt.Color;
+import static java.awt.PageAttributes.ColorType.COLOR;
 import static java.lang.Thread.sleep;
 import java.util.Random;
 import java.util.logging.Level;
@@ -32,13 +33,17 @@ public class SelectionPanel extends Thread {
     Boolean small = false;
     Boolean medium = false;
     Boolean large = false;
-
+    Thread blinkingThread;
+    Thread sizeBlinkingThread;
     public SelectionPanel() {
-        
+        blinkingThread = null;
          Engine.createStatement("select drink from SelectDrink_EVENT")
                 .setSubscriber(new Object() {
                     public void update(Drink d) throws InterruptedException {
                         System.out.println("drink: "+ d.getName());
+                        if(blinkingThread != null)
+                            blinkingThread.stop();
+                        drinkBlinking(d);
                         TransactionProcessor.getInstance().setDrink(d);
                     }
                 });
@@ -55,6 +60,9 @@ public class SelectionPanel extends Thread {
                 .setSubscriber(new Object() {
                     public void update(int size) throws InterruptedException {
                         System.out.println("size: "+size);
+                        if(sizeBlinkingThread != null)
+                            sizeBlinkingThread.stop();
+                        sizeBlinking(size);
                         TransactionProcessor.getInstance().setSize(size);
                     }
                 });
@@ -77,6 +85,62 @@ public class SelectionPanel extends Thread {
         this.start();
     }
 
+    public void drinkBlinking(Drink d){
+        blinkingThread = new Thread() {
+        public void run() {
+            for(int i=0;i<30;i++ )
+            {
+                try {
+                    sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if("espresso".equals(d.getName()))   
+                    WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.CYAN);
+                else if("mocha".equals(d.getName()))
+                    WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.CYAN);
+                else if("latte".equals(d.getName()))
+                    WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.CYAN);
+                else if("machiatto".equals(d.getName()))
+                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.CYAN);
+                else if("americano".equals(d.getName()))
+                    WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.CYAN);
+                else if("cappuccino".equals(d.getName()))
+                    WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.CYAN);
+            }
+                            }
+                        };
+                        blinkingThread.start();
+    }
+    
+    public void sizeBlinking(int size){
+        sizeBlinkingThread = new Thread() {
+        public void run() {
+            for(int i=0;i<30;i++ )
+            {
+                try {
+                    sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                switch (size) {
+                    case 1:
+                        WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.CYAN);
+                        break;
+                    case 2:
+                        WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.CYAN);
+                        break;
+                    case 3:
+                        WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.CYAN);
+                        break;
+                    default:
+                        break;
+                }
+            }
+                            }
+                        };
+        sizeBlinkingThread.start();
+    }
     public static SelectionPanel getInsatance() {
 
         if (selectionpanel != null) {
