@@ -27,9 +27,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
      */
     private static final WaterHeater_VIEW waterHeaterView = new WaterHeater_VIEW();
 
-    public void setTemp(String tempreture) {
-        this.tempreture.setText(tempreture);
-    }
 
     public void setPower(Boolean power) {
         String pow = power ? "ON" : "OFF";
@@ -42,7 +39,22 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         }
     }
 
-    public void setStatus(String status) {
+ 
+    private WaterHeater_VIEW() {
+        initComponents();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(true);
+            }
+        });
+    }
+/*
+    
+     public void setTemp(String tempreture) {
+        this.tempreture.setText(tempreture);
+    }
+    
+     public void setStatus(String status) {
         this.status.setText(status);
         if (status == "COOLING") {
             this.status.setForeground(Color.BLUE);
@@ -52,17 +64,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
             this.status.setForeground(Color.BLACK);
         }
     }
-
-    private WaterHeater_VIEW() {
-        initComponents();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                setVisible(true);
-            }
-        });
-    }
-
-    
+    */
     public static WaterHeater_VIEW getWaterHeaterView() {
         return waterHeaterView;
     }
@@ -76,9 +78,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        status = new javax.swing.JLabel();
-        tempreture = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         power = new javax.swing.JLabel();
         switchPowerBtn = new javax.swing.JButton();
         InsertMoney = new javax.swing.JButton();
@@ -122,30 +121,10 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        status.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 0));
-        status.setText("Status");
-        getContentPane().add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        tempreture.setEditable(false);
-        tempreture.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        tempreture.setText("temperature");
-        tempreture.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tempretureActionPerformed(evt);
-            }
-        });
-        getContentPane().add(tempreture, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, -1));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Water Tempreture");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
-
         power.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
         power.setForeground(new java.awt.Color(255, 255, 0));
         power.setText("Power");
-        getContentPane().add(power, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, -1));
+        getContentPane().add(power, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 110, -1));
 
         switchPowerBtn.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         switchPowerBtn.setText("Switch Power");
@@ -154,7 +133,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 switchPowerBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(switchPowerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 170, -1));
+        getContentPane().add(switchPowerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 170, -1));
 
         InsertMoney.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         InsertMoney.setText("Insert Money");
@@ -168,12 +147,14 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         moneyEntered.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         getContentPane().add(moneyEntered, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 180, -1));
 
+        Screen.setBackground(new java.awt.Color(100, 100, 100));
         Screen.setColumns(20);
-        Screen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Screen.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Screen.setForeground(new java.awt.Color(255, 255, 255));
         Screen.setRows(5);
         jScrollPane2.setViewportView(Screen);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 620, 100));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 620, 70));
 
         Sugar.setMaximum(5);
         Sugar.setValue(0);
@@ -185,7 +166,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(Sugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Sugar");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 70, 40));
 
@@ -278,7 +259,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 540, -1, -1));
 
         mochaName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        mochaName.setForeground(new java.awt.Color(255, 255, 0));
+        mochaName.setForeground(new java.awt.Color(255, 255, 255));
         mochaName.setText("mocha");
         getContentPane().add(mochaName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 610, -1, -1));
 
@@ -286,7 +267,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 690, -1, -1));
 
         latteName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        latteName.setForeground(new java.awt.Color(255, 255, 0));
+        latteName.setForeground(new java.awt.Color(255, 255, 255));
         latteName.setText("latte");
         getContentPane().add(latteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 750, -1, -1));
 
@@ -294,7 +275,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
         espressoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        espressoName.setForeground(new java.awt.Color(255, 255, 0));
+        espressoName.setForeground(new java.awt.Color(255, 255, 255));
         espressoName.setText("espresso");
         getContentPane().add(espressoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
 
@@ -302,7 +283,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         cappuccinoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        cappuccinoName.setForeground(new java.awt.Color(255, 255, 0));
+        cappuccinoName.setForeground(new java.awt.Color(255, 255, 255));
         cappuccinoName.setText("cappuccino");
         getContentPane().add(cappuccinoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
 
@@ -310,7 +291,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
         americanoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        americanoName.setForeground(new java.awt.Color(255, 255, 0));
+        americanoName.setForeground(new java.awt.Color(255, 255, 255));
         americanoName.setText("americano");
         getContentPane().add(americanoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, -1, -1));
 
@@ -318,12 +299,12 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 840, -1, -1));
 
         macchiatoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        macchiatoName.setForeground(new java.awt.Color(255, 255, 0));
+        macchiatoName.setForeground(new java.awt.Color(255, 255, 255));
         macchiatoName.setText("macchiato");
         getContentPane().add(macchiatoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setLabelFor(Sugar);
         jLabel3.setText("0   1   2   3   4   5");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 190, 30));
@@ -333,7 +314,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(Small, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
         smallName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        smallName.setForeground(new java.awt.Color(255, 255, 0));
+        smallName.setForeground(new java.awt.Color(255, 255, 255));
         smallName.setLabelFor(Small);
         smallName.setText("Small");
         getContentPane().add(smallName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, -1, -1));
@@ -343,7 +324,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(Medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, -1, -1));
 
         mediumName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        mediumName.setForeground(new java.awt.Color(255, 255, 0));
+        mediumName.setForeground(new java.awt.Color(255, 255, 255));
         mediumName.setText("Medium");
         getContentPane().add(mediumName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 740, -1, -1));
 
@@ -352,7 +333,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         getContentPane().add(Large, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 800, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setLabelFor(Large);
         jLabel4.setText("Large");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 890, -1, -1));
@@ -363,10 +344,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tempretureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempretureActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tempretureActionPerformed
 
     private void switchPowerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchPowerBtnActionPerformed
         Engine.sendEvent(new Power_EVENT(false));        // TODO add your handling code here:
@@ -612,7 +589,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel cappuccinoName;
     private javax.swing.JLabel espresso;
     private javax.swing.JLabel espressoName;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -631,8 +607,6 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel power;
     private javax.swing.JButton small;
     private javax.swing.JLabel smallName;
-    private javax.swing.JLabel status;
     private javax.swing.JButton switchPowerBtn;
-    private javax.swing.JTextField tempreture;
     // End of variables declaration//GEN-END:variables
 }

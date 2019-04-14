@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.Inventory_Sensor_READING;
 import system.events.WaterHeater_Sensor_READING;
+import system.views.MachineStatsGUI;
 import system.views.WaterHeater_VIEW;
 
 /**
@@ -38,6 +39,16 @@ public class IngredientsSensor extends Thread{
                         System.out.println("Large cups amount: " + large);
                         InventoryHandler.getInsatance().Recivequantity(water,coffee,sugar,chocolate,milk,small,medium,large);
                         // selesction panelll hnaaa
+                        MachineStatsGUI.getInstance().getSugerSlider().setValue(sugar);
+                        MachineStatsGUI.getInstance().getWaterSlider().setValue(water);
+                        MachineStatsGUI.getInstance().getLargeSlider().setValue(large);
+                        MachineStatsGUI.getInstance().getMediumSlider().setValue(medium);
+                        MachineStatsGUI.getInstance().getSmallSlider().setValue(small);
+                        MachineStatsGUI.getInstance().getMilkSlider().setValue(milk);
+                        MachineStatsGUI.getInstance().getChoclateSlider().setValue(chocolate);
+                        MachineStatsGUI.getInstance().getCoffeeSlider().setValue(coffee);
+                        
+                        
                     }
                 });
         

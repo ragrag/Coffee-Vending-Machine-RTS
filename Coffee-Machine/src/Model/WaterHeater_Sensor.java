@@ -9,6 +9,7 @@ import backend.event.engine.Engine;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.WaterHeater_Sensor_READING;
+import system.views.MachineStatsGUI;
 import system.views.WaterHeater_VIEW;
 
 /**
@@ -27,7 +28,8 @@ public class WaterHeater_Sensor extends Thread {
                     public void update(double temp) throws InterruptedException {
                         System.out.println("Water Tempreture: " + String.format("%.2f", temp));
                         WaterHeater.getWaterHeater().tempretureSignal(temp);
-                        WaterHeater_VIEW.getWaterHeaterView().setTemp(String.format("%.2f", temp));
+                        //WaterHeater_VIEW.getWaterHeaterView().setTemp(String.format("%.2f", temp));
+                        MachineStatsGUI.getInstance().setTemp(String.format("%.2f", temp));
                     }
                 });
         this.start();
@@ -56,7 +58,8 @@ public class WaterHeater_Sensor extends Thread {
                 
                   
             } else {
-                WaterHeater_VIEW.getWaterHeaterView().setTemp("Heat Sensor Off");
+                //WaterHeater_VIEW.getWaterHeaterView().setTemp("Heat Sensor Off");
+                MachineStatsGUI.getInstance().setTemp("Heat Sensor Off");
             }
         }
     }
