@@ -98,60 +98,82 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         small = new javax.swing.JButton();
         medium = new javax.swing.JButton();
         large = new javax.swing.JButton();
+        mocha = new javax.swing.JLabel();
+        mochaName = new javax.swing.JLabel();
+        latte = new javax.swing.JLabel();
+        latteName = new javax.swing.JLabel();
+        espresso = new javax.swing.JLabel();
+        espressoName = new javax.swing.JLabel();
+        cappuccino = new javax.swing.JLabel();
+        cappuccinoName = new javax.swing.JLabel();
+        americano = new javax.swing.JLabel();
+        americanoName = new javax.swing.JLabel();
+        macchiato = new javax.swing.JLabel();
+        macchiatoName = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        Small = new javax.swing.JLabel();
+        smallName = new javax.swing.JLabel();
+        Medium = new javax.swing.JLabel();
+        mediumName = new javax.swing.JLabel();
+        Large = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        status.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        status.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
+        status.setForeground(new java.awt.Color(255, 255, 0));
         status.setText("Status");
-        getContentPane().add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 340, -1, -1));
+        getContentPane().add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         tempreture.setEditable(false);
-        tempreture.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tempreture.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         tempreture.setText("temperature");
         tempreture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tempretureActionPerformed(evt);
             }
         });
-        getContentPane().add(tempreture, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 310, -1, -1));
+        getContentPane().add(tempreture, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Water Tempreture");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 280, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
-        power.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        power.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
+        power.setForeground(new java.awt.Color(255, 255, 0));
         power.setText("Power");
-        getContentPane().add(power, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 370, -1, -1));
+        getContentPane().add(power, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, -1));
 
-        switchPowerBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        switchPowerBtn.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         switchPowerBtn.setText("Switch Power");
         switchPowerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 switchPowerBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(switchPowerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 370, -1, -1));
+        getContentPane().add(switchPowerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 170, -1));
 
-        InsertMoney.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        InsertMoney.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         InsertMoney.setText("Insert Money");
         InsertMoney.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InsertMoneyActionPerformed(evt);
             }
         });
-        getContentPane().add(InsertMoney, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 230, -1, -1));
+        getContentPane().add(InsertMoney, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 180, -1));
 
-        moneyEntered.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(moneyEntered, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 180, 113, -1));
+        moneyEntered.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(moneyEntered, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 180, -1));
 
         Screen.setColumns(20);
         Screen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Screen.setRows(5);
         jScrollPane2.setViewportView(Screen);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, -1, 138));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 620, 100));
 
         Sugar.setMaximum(5);
         Sugar.setValue(0);
@@ -160,110 +182,184 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 SugarStateChanged(evt);
             }
         });
-        getContentPane().add(Sugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, -1, -1));
+        getContentPane().add(Sugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 190, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Sugar 0->5");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 110, 20));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel2.setText("Sugar");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 70, 40));
 
-        Start.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Start.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         Start.setText("Start");
         Start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StartActionPerformed(evt);
             }
         });
-        getContentPane().add(Start, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 50, 110, 50));
+        getContentPane().add(Start, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 110, 50));
 
-        Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cancel.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         Cancel.setText("Cancel");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelActionPerformed(evt);
             }
         });
-        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, 110, 50));
+        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 110, 50));
 
-        Latte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/2.jpg"))); // NOI18N
-        Latte.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Latte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LatteActionPerformed(evt);
             }
         });
-        getContentPane().add(Latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 200, 200));
+        getContentPane().add(Latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 750, 20, 20));
 
-        Americano.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/1.jpg"))); // NOI18N
-        Americano.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Americano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmericanoActionPerformed(evt);
             }
         });
-        getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 200));
+        getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 20, 20));
 
-        Macchiato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/3.jpg"))); // NOI18N
-        Macchiato.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Macchiato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MacchiatoActionPerformed(evt);
             }
         });
-        getContentPane().add(Macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 200, 200));
+        getContentPane().add(Macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 900, 20, 20));
 
-        Cappuccino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/4.jpg"))); // NOI18N
-        Cappuccino.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Cappuccino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CappuccinoActionPerformed(evt);
             }
         });
-        getContentPane().add(Cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 200));
+        getContentPane().add(Cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 20, 20));
 
-        Espresso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/5.jpg"))); // NOI18N
-        Espresso.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Espresso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EspressoActionPerformed(evt);
             }
         });
-        getContentPane().add(Espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 200, 200));
+        getContentPane().add(Espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 20, 20));
 
-        Mocha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/6.jpg"))); // NOI18N
-        Mocha.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         Mocha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MochaActionPerformed(evt);
             }
         });
-        getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 200));
+        getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 610, 20, 20));
 
-        small.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/small.jpg"))); // NOI18N
+        small.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         small.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 smallActionPerformed(evt);
             }
         });
-        getContentPane().add(small, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 115, 175));
+        getContentPane().add(small, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 20, 20));
 
-        medium.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/medium.jpg"))); // NOI18N
+        medium.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        medium.setToolTipText("");
         medium.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mediumActionPerformed(evt);
             }
         });
-        getContentPane().add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 115, 175));
+        getContentPane().add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 740, 20, 20));
 
-        large.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/large.jpg"))); // NOI18N
+        large.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         large.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 largeActionPerformed(evt);
             }
         });
-        getContentPane().add(large, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 115, 175));
+        getContentPane().add(large, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 890, 20, 20));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 400));
+        mocha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/mocha.png"))); // NOI18N
+        getContentPane().add(mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 540, -1, -1));
+
+        mochaName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        mochaName.setForeground(new java.awt.Color(255, 255, 0));
+        mochaName.setText("mocha");
+        getContentPane().add(mochaName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 610, -1, -1));
+
+        latte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/latte.png"))); // NOI18N
+        getContentPane().add(latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 690, -1, -1));
+
+        latteName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        latteName.setForeground(new java.awt.Color(255, 255, 0));
+        latteName.setText("latte");
+        getContentPane().add(latteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 750, -1, -1));
+
+        espresso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/espresso.png"))); // NOI18N
+        getContentPane().add(espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
+
+        espressoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        espressoName.setForeground(new java.awt.Color(255, 255, 0));
+        espressoName.setText("espresso");
+        getContentPane().add(espressoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+
+        cappuccino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/cappuccino.png"))); // NOI18N
+        getContentPane().add(cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
+
+        cappuccinoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        cappuccinoName.setForeground(new java.awt.Color(255, 255, 0));
+        cappuccinoName.setText("cappuccino");
+        getContentPane().add(cappuccinoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
+
+        americano.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/americano.png"))); // NOI18N
+        getContentPane().add(americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
+
+        americanoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        americanoName.setForeground(new java.awt.Color(255, 255, 0));
+        americanoName.setText("americano");
+        getContentPane().add(americanoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, -1, -1));
+
+        macchiato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/macchiato.png"))); // NOI18N
+        getContentPane().add(macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 840, -1, -1));
+
+        macchiatoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        macchiatoName.setForeground(new java.awt.Color(255, 255, 0));
+        macchiatoName.setText("macchiato");
+        getContentPane().add(macchiatoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setLabelFor(Sugar);
+        jLabel3.setText("0   1   2   3   4   5");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 190, 30));
+
+        Small.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/small.png"))); // NOI18N
+        Small.setLabelFor(Small);
+        getContentPane().add(Small, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
+
+        smallName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        smallName.setForeground(new java.awt.Color(255, 255, 0));
+        smallName.setLabelFor(Small);
+        smallName.setText("Small");
+        getContentPane().add(smallName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, -1, -1));
+
+        Medium.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/medium.png"))); // NOI18N
+        Medium.setLabelFor(medium);
+        getContentPane().add(Medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, -1, -1));
+
+        mediumName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        mediumName.setForeground(new java.awt.Color(255, 255, 0));
+        mediumName.setText("Medium");
+        getContentPane().add(mediumName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 740, -1, -1));
+
+        Large.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/large.png"))); // NOI18N
+        Large.setLabelFor(Large);
+        getContentPane().add(Large, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 800, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setLabelFor(Large);
+        jLabel4.setText("Large");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 890, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb - Copy.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 700, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -501,21 +597,40 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     private javax.swing.JButton Cappuccino;
     private javax.swing.JButton Espresso;
     private javax.swing.JButton InsertMoney;
+    private javax.swing.JLabel Large;
     private javax.swing.JButton Latte;
     private javax.swing.JButton Macchiato;
+    private javax.swing.JLabel Medium;
     private javax.swing.JButton Mocha;
     private javax.swing.JTextArea Screen;
+    private javax.swing.JLabel Small;
     private javax.swing.JButton Start;
     private javax.swing.JSlider Sugar;
+    private javax.swing.JLabel americano;
+    private javax.swing.JLabel americanoName;
+    private javax.swing.JLabel cappuccino;
+    private javax.swing.JLabel cappuccinoName;
+    private javax.swing.JLabel espresso;
+    private javax.swing.JLabel espressoName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton large;
+    private javax.swing.JLabel latte;
+    private javax.swing.JLabel latteName;
+    private javax.swing.JLabel macchiato;
+    private javax.swing.JLabel macchiatoName;
     private javax.swing.JButton medium;
+    private javax.swing.JLabel mediumName;
+    private javax.swing.JLabel mocha;
+    private javax.swing.JLabel mochaName;
     private javax.swing.JTextField moneyEntered;
     private javax.swing.JLabel power;
     private javax.swing.JButton small;
+    private javax.swing.JLabel smallName;
     private javax.swing.JLabel status;
     private javax.swing.JButton switchPowerBtn;
     private javax.swing.JTextField tempreture;

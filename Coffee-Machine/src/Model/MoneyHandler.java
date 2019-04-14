@@ -16,16 +16,18 @@ import system.views.WaterHeater_VIEW;
 public class MoneyHandler extends Thread {
     private int balance;
     private int value;
-    private static Boolean condition;
+    private Boolean condition;
     
     private static MoneyHandler moneyHandler;
     private MoneyHandler(){
         resetBalance();
         this.start();
+        balance=0;
+        condition = null;
         Money_Sensor.getInstance();
     }
     public static MoneyHandler getMoneyHandler(){
-        condition = null;
+        
         if (moneyHandler!=null)
             return moneyHandler;
         else
@@ -58,7 +60,7 @@ public class MoneyHandler extends Thread {
     
     public void autheniecateMoney(){
 
-    if(condition != null){
+        if(condition != null){
                 if(!condition)
                 {
                     rejectMoney();
@@ -72,25 +74,24 @@ public class MoneyHandler extends Thread {
 }
     public void acceptMoney(){
         if(authenticateMoneyValue()){
-                        balance += value;
-                        value = 0;
-                        condition = null;
-                        System.out.println("The balance equal "+balance);
-                        TransactionProcessor.getInstance().setBalance(balance);
-                        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
+            balance += value;
+            value = 0;
+            condition = null;
+            System.out.println("The balance equal "+balance);
+            TransactionProcessor.getInstance().setBalance(balance);
+            WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
                         
-                    }
-                    else{
-                        Money_Dispenser.getMoneyDispenser().dispenseMoney();
-                        condition = null;
-                        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nRejected Money Value");
-                    }
+        }
+            else{
+                Money_Dispenser.getMoneyDispenser().dispenseMoney();
+                condition = null;
+                WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nRejected Money Value");
+            }
     }
     public void rejectMoney(){
-    
-           Money_Dispenser.getMoneyDispenser().dispenseMoney();
-                    condition = null;
-                    WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nBad Money Condition");
+        Money_Dispenser.getMoneyDispenser().dispenseMoney();
+        condition = null;
+        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nBad Money Condition");
                 
     }
     
