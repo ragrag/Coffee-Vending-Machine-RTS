@@ -27,7 +27,7 @@ public class WaterHeater_Sensor extends Thread {
                 .setSubscriber(new Object() {
                     public void update(double temp) throws InterruptedException {
                         System.out.println("Water Tempreture: " + String.format("%.2f", temp));
-                        WaterHeater.getWaterHeater().tempretureSignal(temp);
+                        WaterHeater.getInstance().tempretureSignal(temp);
                         //WaterHeater_VIEW.getWaterHeaterView().setTemp(String.format("%.2f", temp));
                         MachineStatsGUI.getInstance().setTemp(String.format("%.2f", temp));
                     }

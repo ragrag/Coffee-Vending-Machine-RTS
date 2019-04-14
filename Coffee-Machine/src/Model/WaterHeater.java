@@ -46,7 +46,7 @@ public class WaterHeater extends Thread {
         }
     }
 
-    public static WaterHeater getWaterHeater() {
+    public static WaterHeater getInstance() {
         return waterHeater;
     }
 

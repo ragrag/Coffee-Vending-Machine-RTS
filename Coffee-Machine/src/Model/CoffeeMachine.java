@@ -20,8 +20,8 @@ public class CoffeeMachine {
     private CoffeeMachine() {
         
         this.powered = true;
-        SelectionPanel.getInsatance();
-        WaterHeater.getWaterHeater();
+        SelectionPanel.getInstance();
+        WaterHeater.getInstance();
         MoneyHandler.getMoneyHandler();
         InventoryHandler.getInsatance();
         TransactionProcessor.getInstance();
@@ -65,7 +65,7 @@ public class CoffeeMachine {
         WaterHeater_VIEW.getWaterHeaterView().getStart().setEnabled(false);
         WaterHeater_VIEW.getWaterHeaterView().getCancel().setEnabled(false);
         WaterHeater_VIEW.getWaterHeaterView().getInsertMoney().setEnabled(false);
-        
+        SelectionPanel.getInstance().stopBlinking();
     }
     
     public void enableBottuns(){

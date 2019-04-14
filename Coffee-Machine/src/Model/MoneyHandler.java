@@ -99,9 +99,7 @@ public class MoneyHandler extends Thread {
         System.out.println("Take your money "+money);
         balance = 0;
         Money_Dispenser.getMoneyDispenser().dispenseMoney();
-        
-        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
-        
+        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("Balance : "+balance+"\nMoney Dispensed : "+money);
     }
     
     @Override

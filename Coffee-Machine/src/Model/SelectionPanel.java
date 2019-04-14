@@ -35,113 +35,128 @@ public class SelectionPanel extends Thread {
     Boolean large = false;
     Thread blinkingThread;
     Thread sizeBlinkingThread;
+
     public SelectionPanel() {
         blinkingThread = null;
-         Engine.createStatement("select drink from SelectDrink_EVENT")
+        Engine.createStatement("select drink from SelectDrink_EVENT")
                 .setSubscriber(new Object() {
                     public void update(Drink d) throws InterruptedException {
-                        System.out.println("drink: "+ d.getName());
-                        if(blinkingThread != null)
+                        System.out.println("drink: " + d.getName());
+                        if (blinkingThread != null) {
                             blinkingThread.stop();
+                        }
                         drinkBlinking(d);
                         TransactionProcessor.getInstance().setDrink(d);
                     }
                 });
-         
-         Engine.createStatement("select sugerSelection from SelectSuger_EVENT")
+
+        Engine.createStatement("select sugerSelection from SelectSuger_EVENT")
                 .setSubscriber(new Object() {
                     public void update(int suger) throws InterruptedException {
-                        System.out.println("suger: "+ suger);
+                        System.out.println("suger: " + suger);
                         TransactionProcessor.getInstance().setSuger(suger);
                     }
                 });
-        
-         Engine.createStatement("select size from SelectSize_EVENT")
+
+        Engine.createStatement("select size from SelectSize_EVENT")
                 .setSubscriber(new Object() {
                     public void update(int size) throws InterruptedException {
-                        System.out.println("size: "+size);
-                        if(sizeBlinkingThread != null)
+                        System.out.println("size: " + size);
+                        if (sizeBlinkingThread != null) {
                             sizeBlinkingThread.stop();
+                        }
                         sizeBlinking(size);
                         TransactionProcessor.getInstance().setSize(size);
                     }
                 });
-         
-         Engine.createStatement("select startOrder from Start_EVENT")
+
+        Engine.createStatement("select startOrder from Start_EVENT")
                 .setSubscriber(new Object() {
                     public void update(Boolean startOrder) throws InterruptedException {
-                        System.out.println("startOrder: "+startOrder);
+                        stopBlinking();
+                        System.out.println("startOrder: " + startOrder);
                         TransactionProcessor.getInstance().startOrder();
                     }
                 });
-         Engine.createStatement("select cancel from Cancel_EVENT")
+        Engine.createStatement("select cancel from Cancel_EVENT")
                 .setSubscriber(new Object() {
                     public void update(Boolean cancel) throws InterruptedException {
-                        System.out.println("cancel: "+cancel);
+                        stopBlinking();
+                        System.out.println("cancel: " + cancel);
                         TransactionProcessor.getInstance().cancel();
                     }
                 });
-         
+
         this.start();
     }
 
-    public void drinkBlinking(Drink d){
+    public void drinkBlinking(Drink d) {
         blinkingThread = new Thread() {
-        public void run() {
-            for(int i=0;i<30;i++ )
-            {
-                try {
-                    sleep(500);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
+            public void run() {
+                while (true) {
+                    try {
+                        sleep(500);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if ("espresso".equals(d.getName())) {
+                        WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.CYAN);
+                    } else if ("mocha".equals(d.getName())) {
+                        WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.CYAN);
+                    } else if ("latte".equals(d.getName())) {
+                        WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.CYAN);
+                    } else if ("machiatto".equals(d.getName())) {
+                        WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.CYAN);
+                    } else if ("americano".equals(d.getName())) {
+                        WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.CYAN);
+                    } else if ("cappuccino".equals(d.getName())) {
+                        WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.CYAN);
+                    }
                 }
-                if("espresso".equals(d.getName()))   
-                    WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.CYAN);
-                else if("mocha".equals(d.getName()))
-                    WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.CYAN);
-                else if("latte".equals(d.getName()))
-                    WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.CYAN);
-                else if("machiatto".equals(d.getName()))
-                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.CYAN);
-                else if("americano".equals(d.getName()))
-                    WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.CYAN);
-                else if("cappuccino".equals(d.getName()))
-                    WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.CYAN);
             }
-                            }
-                        };
-                        blinkingThread.start();
+        };
+        blinkingThread.start();
     }
-    
-    public void sizeBlinking(int size){
+
+    public void stopBlinking() {
+
+        if (sizeBlinkingThread != null) {
+            sizeBlinkingThread.stop();
+        }
+        if (blinkingThread != null) {
+            blinkingThread.stop();
+        }
+    }
+
+    public void sizeBlinking(int size) {
         sizeBlinkingThread = new Thread() {
-        public void run() {
-            for(int i=0;i<30;i++ )
-            {
-                try {
-                    sleep(500);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                switch (size) {
-                    case 1:
-                        WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.CYAN);
-                        break;
-                    case 2:
-                        WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.CYAN);
-                        break;
-                    case 3:
-                        WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.CYAN);
-                        break;
-                    default:
-                        break;
+            public void run() {
+                while (true) {
+                    try {
+                        sleep(500);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    switch (size) {
+                        case 1:
+                            WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.CYAN);
+                            break;
+                        case 2:
+                            WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.CYAN);
+                            break;
+                        case 3:
+                            WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.CYAN);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-                            }
-                        };
+        };
         sizeBlinkingThread.start();
     }
-    public static SelectionPanel getInsatance() {
+
+    public static SelectionPanel getInstance() {
 
         if (selectionpanel != null) {
 
@@ -162,7 +177,7 @@ public class SelectionPanel extends Thread {
         this.machiattobutton = machiattobutton;
         this.mochabutton = mochabutton;
         this.americanobutton = americanobutton;
-        
+
         this.medium = medium;
         this.large = large;
         this.small = small;
@@ -180,54 +195,63 @@ public class SelectionPanel extends Thread {
                 Logger.getLogger(WaterHeater_Sensor.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (CoffeeMachine.getInstance().getPowered()) {
-                
-                if(this.americanobutton)
+
+                if (this.americanobutton) {
                     WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.red);
-                
-                if(this.cappuccinobutton)
+                }
+
+                if (this.cappuccinobutton) {
                     WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.red);
-                
-                if(this.espressobutton)
+                }
+
+                if (this.espressobutton) {
                     WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.red);
-                
-                if(this.lattebutton)
+                }
+
+                if (this.lattebutton) {
                     WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.red);
-                
-                if(this.machiattobutton)
-                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.green); 
-                else
-                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.red); 
-                
-                if(this.mochabutton)
+                }
+
+                if (this.machiattobutton) {
+                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.green);
+                } else {
+                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.red);
+                }
+
+                if (this.mochabutton) {
                     WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.red);
-                
-                if(this.small)
+                }
+
+                if (this.small) {
                     WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.red);
-                
-                if(this.medium)
-                    WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.green); 
-                else
-                    WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.red); 
-                
-                if(this.large)
+                }
+
+                if (this.medium) {
+                    WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.green);
+                } else {
+                    WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.red);
+                }
+
+                if (this.large) {
                     WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.green);
-                else
+                } else {
                     WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.red);
-                    
+                }
+
                 System.out.println("Mocha" + mochabutton);
-                  
+
                 /*
                 WaterHeater_VIEW.getWaterHeaterView().getAmericano().setEnabled(this.americanobutton);
                 WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setEnabled(this.cappuccinobutton);
@@ -235,20 +259,19 @@ public class SelectionPanel extends Thread {
                 WaterHeater_VIEW.getWaterHeaterView().getLatte().setEnabled(this.lattebutton);
                 WaterHeater_VIEW.getWaterHeaterView().getMocha().setEnabled(this.mochabutton);
                 WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setEnabled(this.machiattobutton);
-*/
+                 */
 //                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(0), mochabutton);
 //                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(1), espressobutton);
 //                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), americanobutton);
 //                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(3), machiattobutton);
 //                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(4), lattebutton );
 //                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(5), cappuccinobutton);
-          
             } else {
                 WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.lightGray);
                 WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.lightGray);
                 WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.lightGray);
                 WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.lightGray); 
+                WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.lightGray);
                 WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.lightGray);
                 WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.lightGray);
                 WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.lightGray);
