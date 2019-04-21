@@ -20,12 +20,12 @@ import system.events.*;
  *
  * @author ragrag
  */
-public class WaterHeater_VIEW extends javax.swing.JFrame {
+public class CoffeeMachineGUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form WaterHeater_VIEW
+     * Creates new form CoffeeMachineGUI
      */
-    private static final WaterHeater_VIEW waterHeaterView = new WaterHeater_VIEW();
+    private static final CoffeeMachineGUI coffeeMachine = new CoffeeMachineGUI();
 
 
     public void setPower(Boolean power) {
@@ -40,7 +40,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
     }
 
  
-    private WaterHeater_VIEW() {
+    private CoffeeMachineGUI() {
         initComponents();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -65,8 +65,8 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         }
     }
     */
-    public static WaterHeater_VIEW getWaterHeaterView() {
-        return waterHeaterView;
+    public static CoffeeMachineGUI getCoffeeMachineGUI() {
+        return coffeeMachine;
     }
 
     /**
@@ -154,7 +154,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         Screen.setRows(5);
         jScrollPane2.setViewportView(Screen);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 620, 70));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 620, 100));
 
         Sugar.setMaximum(5);
         Sugar.setValue(0);
@@ -193,42 +193,42 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 LatteActionPerformed(evt);
             }
         });
-        getContentPane().add(Latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 750, 20, 20));
+        getContentPane().add(Latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 750, 20, 20));
 
         Americano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmericanoActionPerformed(evt);
             }
         });
-        getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 20, 20));
+        getContentPane().add(Americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 20, 20));
 
         Macchiato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MacchiatoActionPerformed(evt);
             }
         });
-        getContentPane().add(Macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 900, 20, 20));
+        getContentPane().add(Macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 900, 20, 20));
 
         Cappuccino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CappuccinoActionPerformed(evt);
             }
         });
-        getContentPane().add(Cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 20, 20));
+        getContentPane().add(Cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 20, 20));
 
         Espresso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EspressoActionPerformed(evt);
             }
         });
-        getContentPane().add(Espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 20, 20));
+        getContentPane().add(Espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 20, 20));
 
         Mocha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MochaActionPerformed(evt);
             }
         });
-        getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 610, 20, 20));
+        getContentPane().add(Mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 610, 20, 20));
 
         small.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         small.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +236,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 smallActionPerformed(evt);
             }
         });
-        getContentPane().add(small, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 20, 20));
+        getContentPane().add(small, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 20, 20));
 
         medium.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         medium.setToolTipText("");
@@ -245,7 +245,7 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 mediumActionPerformed(evt);
             }
         });
-        getContentPane().add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 740, 20, 20));
+        getContentPane().add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 740, 20, 20));
 
         large.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         large.addActionListener(new java.awt.event.ActionListener() {
@@ -253,55 +253,55 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
                 largeActionPerformed(evt);
             }
         });
-        getContentPane().add(large, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 890, 20, 20));
+        getContentPane().add(large, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 890, 20, 20));
 
         mocha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/mocha.png"))); // NOI18N
         getContentPane().add(mocha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 540, -1, -1));
 
         mochaName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         mochaName.setForeground(new java.awt.Color(255, 255, 255));
-        mochaName.setText("mocha");
-        getContentPane().add(mochaName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 610, -1, -1));
+        mochaName.setText("Mocha 20LE");
+        getContentPane().add(mochaName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, -1, -1));
 
         latte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/latte.png"))); // NOI18N
         getContentPane().add(latte, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 690, -1, -1));
 
         latteName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         latteName.setForeground(new java.awt.Color(255, 255, 255));
-        latteName.setText("latte");
-        getContentPane().add(latteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 750, -1, -1));
+        latteName.setText("Latte 15LE");
+        getContentPane().add(latteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 750, -1, -1));
 
         espresso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/espresso.png"))); // NOI18N
         getContentPane().add(espresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
         espressoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         espressoName.setForeground(new java.awt.Color(255, 255, 255));
-        espressoName.setText("espresso");
-        getContentPane().add(espressoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+        espressoName.setText("Espresso 5LE");
+        getContentPane().add(espressoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, -1, -1));
 
         cappuccino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/cappuccino.png"))); // NOI18N
         getContentPane().add(cappuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         cappuccinoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         cappuccinoName.setForeground(new java.awt.Color(255, 255, 255));
-        cappuccinoName.setText("cappuccino");
-        getContentPane().add(cappuccinoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
+        cappuccinoName.setText("Cappuccino 15LE");
+        getContentPane().add(cappuccinoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
 
         americano.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/americano.png"))); // NOI18N
         getContentPane().add(americano, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
         americanoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         americanoName.setForeground(new java.awt.Color(255, 255, 255));
-        americanoName.setText("americano");
-        getContentPane().add(americanoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, -1, -1));
+        americanoName.setText("Americano 10LE");
+        getContentPane().add(americanoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, -1, -1));
 
         macchiato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/macchiato.png"))); // NOI18N
         getContentPane().add(macchiato, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 840, -1, -1));
 
         macchiatoName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         macchiatoName.setForeground(new java.awt.Color(255, 255, 255));
-        macchiatoName.setText("macchiato");
-        getContentPane().add(macchiatoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, -1, -1));
+        macchiatoName.setText("Macchiato 25LE");
+        getContentPane().add(macchiatoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 900, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -316,8 +316,8 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         smallName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         smallName.setForeground(new java.awt.Color(255, 255, 255));
         smallName.setLabelFor(Small);
-        smallName.setText("Small");
-        getContentPane().add(smallName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, -1, -1));
+        smallName.setText("Small + 0");
+        getContentPane().add(smallName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, -1, -1));
 
         Medium.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/medium.png"))); // NOI18N
         Medium.setLabelFor(medium);
@@ -325,8 +325,8 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
 
         mediumName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         mediumName.setForeground(new java.awt.Color(255, 255, 255));
-        mediumName.setText("Medium");
-        getContentPane().add(mediumName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 740, -1, -1));
+        mediumName.setText("Medium + 5");
+        getContentPane().add(mediumName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 740, -1, -1));
 
         Large.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/large.png"))); // NOI18N
         Large.setLabelFor(Large);
@@ -335,8 +335,8 @@ public class WaterHeater_VIEW extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setLabelFor(Large);
-        jLabel4.setText("Large");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 890, -1, -1));
+        jLabel4.setText("Large + 10");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 890, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system/views/coffee_minimal_wallpapers_by_webmozg-d3d9qfb - Copy.jpg"))); // NOI18N

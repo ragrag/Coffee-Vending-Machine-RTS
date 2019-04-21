@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.WaterHeater_Sensor_READING;
 import system.views.MachineStatsGUI;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *

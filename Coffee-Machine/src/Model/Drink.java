@@ -25,9 +25,8 @@ public class Drink {
         this.milk = milk;
         this.chocolate=  chocolate;
         this.price=price;
-        
     }
-
+    
     public int getPrice() {
         return price;
     }
@@ -35,8 +34,6 @@ public class Drink {
     public void setPrice(int price) {
         this.price = price;
     }
-    
-    
     
     public int getCoffee() {
         return coffee;
@@ -54,12 +51,12 @@ public class Drink {
     }
     
     private static  void initializeDrinks(){
-        Drink espresso = new Drink("espresso",2,4,5,5);
-        Drink mocha = new Drink("mocha",2,1,1,10);
-        Drink latte = new Drink("latte",2,1,1,15);
-        Drink machiatto = new Drink("machiatto",2,1,1,25);
-        Drink americano = new Drink("americano",2,1,1,10);
-        Drink cappuccino = new Drink("cappuccino",2,1,1,15);
+        Drink espresso = new Drink("espresso",5,0,0,5);
+        Drink mocha = new Drink("mocha",3,2,3,20);
+        Drink latte = new Drink("latte",2,5,0,15);
+        Drink machiatto = new Drink("machiatto",2,3,2,25);
+        Drink americano = new Drink("americano",4,1,0,10);
+        Drink cappuccino = new Drink("cappuccino",3,3,0,15);
         
         allDrinks.add(mocha);
         allDrinks.add(espresso);
@@ -70,15 +67,11 @@ public class Drink {
     }
     public static  ArrayList<Drink> getDrinks()
     {
-        System.err.println("SSSSSSSSSSS");
         if (allDrinks.size() > 0)
             return allDrinks;
         else {
-          
             initializeDrinks();
-            
             return allDrinks;
-            
         }
     }
    

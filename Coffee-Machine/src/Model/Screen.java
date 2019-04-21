@@ -5,10 +5,32 @@
  */
 package Model;
 
+import system.views.CoffeeMachineGUI;
+
 /**
  *
  * @author glori
  */
 public class Screen {
+    
+    private static Screen screen=null;
+    private Screen(){
+        display("Hello! :)");
+    }
+    
+    public static Screen getScreen(){
+        if(screen!=null)
+            return screen;
+        else
+        {
+            screen=new Screen();
+            return screen;
+        }
+       
+    }
+    public void display(String msg)
+    {
+        CoffeeMachineGUI.getCoffeeMachineGUI().getScreen().setText(msg);
+    }
     
 }

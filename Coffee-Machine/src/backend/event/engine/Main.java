@@ -9,7 +9,7 @@ import Model.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import system.views.MachineStatsGUI;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -27,7 +27,7 @@ public class Main {
 
         // Register events
         Engine.registerEvents();
-        WaterHeater_VIEW.getWaterHeaterView();
+        CoffeeMachineGUI.getCoffeeMachineGUI();
         MachineStatsGUI.getInstance();
         CoffeeMachine.getInstance();
         

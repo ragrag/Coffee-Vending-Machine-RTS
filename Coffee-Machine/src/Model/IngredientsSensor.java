@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import system.events.Inventory_Sensor_READING;
 import system.events.WaterHeater_Sensor_READING;
 import system.views.MachineStatsGUI;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -85,7 +85,7 @@ public class IngredientsSensor extends Thread{
                 
                 Engine.sendEvent(new Inventory_Sensor_READING(sugarQuantity, milkQuantity, coffeeQuantity, waterQuantity, choccolateQuantity,smallCupsQuantity,mediumCupsQuantity,largeCupsQuantity));
             } //else {
-              //  WaterHeater_VIEW.getWaterHeaterView().setTemp("Heat Sensor Off");
+              //  CoffeeMachineGUI.getWaterHeaterView().setTemp("Heat Sensor Off");
             //}
         } //To change body of generated methods, choose Tools | Templates.
     }

@@ -13,7 +13,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.WaterHeater_Sensor_READING;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -47,6 +47,8 @@ public class SelectionPanel extends Thread {
                         }
                         drinkBlinking(d);
                         TransactionProcessor.getInstance().setDrink(d);
+                        TransactionProcessor.getInstance().calculatePrice();
+                        Screen.getScreen().display("The balance equal "+TransactionProcessor.getInstance().getBalance()+"\nOrder Price "+ TransactionProcessor.getInstance().getOrderPrice());
                     }
                 });
 
@@ -67,6 +69,8 @@ public class SelectionPanel extends Thread {
                         }
                         sizeBlinking(size);
                         TransactionProcessor.getInstance().setSize(size);
+                        TransactionProcessor.getInstance().calculatePrice();
+                        Screen.getScreen().display("The balance equal "+TransactionProcessor.getInstance().getBalance()+"\nOrder Price: "+ TransactionProcessor.getInstance().getOrderPrice());
                     }
                 });
 
@@ -100,17 +104,17 @@ public class SelectionPanel extends Thread {
                         Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     if ("espresso".equals(d.getName())) {
-                        WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.CYAN);
+                        CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.CYAN);
                     } else if ("mocha".equals(d.getName())) {
-                        WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.CYAN);
+                        CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.CYAN);
                     } else if ("latte".equals(d.getName())) {
-                        WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.CYAN);
+                        CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.CYAN);
                     } else if ("machiatto".equals(d.getName())) {
-                        WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.CYAN);
+                        CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.CYAN);
                     } else if ("americano".equals(d.getName())) {
-                        WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.CYAN);
+                        CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.CYAN);
                     } else if ("cappuccino".equals(d.getName())) {
-                        WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.CYAN);
+                        CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.CYAN);
                     }
                 }
             }
@@ -139,13 +143,13 @@ public class SelectionPanel extends Thread {
                     }
                     switch (size) {
                         case 1:
-                            WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.CYAN);
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setBackground(Color.CYAN);
                             break;
                         case 2:
-                            WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.CYAN);
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setBackground(Color.CYAN);
                             break;
                         case 3:
-                            WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.CYAN);
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setBackground(Color.CYAN);
                             break;
                         default:
                             break;
@@ -197,87 +201,73 @@ public class SelectionPanel extends Thread {
             if (CoffeeMachine.getInstance().getPowered()) {
 
                 if (this.americanobutton) {
-                    WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.red);
                 }
 
                 if (this.cappuccinobutton) {
-                    WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.red);
                 }
 
                 if (this.espressobutton) {
-                    WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.red);
                 }
 
                 if (this.lattebutton) {
-                    WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.red);
                 }
 
                 if (this.machiattobutton) {
-                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.red);
                 }
 
                 if (this.mochabutton) {
-                    WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.red);
                 }
 
                 if (this.small) {
-                    WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setBackground(Color.red);
                 }
 
                 if (this.medium) {
-                    WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setBackground(Color.red);
                 }
 
                 if (this.large) {
-                    WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.green);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setBackground(Color.green);
                 } else {
-                    WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.red);
+                    CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setBackground(Color.red);
                 }
 
                 System.out.println("Mocha" + mochabutton);
 
-                /*
-                WaterHeater_VIEW.getWaterHeaterView().getAmericano().setEnabled(this.americanobutton);
-                WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setEnabled(this.cappuccinobutton);
-                WaterHeater_VIEW.getWaterHeaterView().getEspresso().setEnabled(this.espressobutton);
-                WaterHeater_VIEW.getWaterHeaterView().getLatte().setEnabled(this.lattebutton);
-                WaterHeater_VIEW.getWaterHeaterView().getMocha().setEnabled(this.mochabutton);
-                WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setEnabled(this.machiattobutton);
-                 */
-//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(0), mochabutton);
-//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(1), espressobutton);
-//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(2), americanobutton);
-//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(3), machiattobutton);
-//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(4), lattebutton );
-//                WaterHeater_VIEW.getWaterHeaterView().setDrink(Drink.getDrinks().get(5), cappuccinobutton);
             } else {
-                WaterHeater_VIEW.getWaterHeaterView().getAmericano().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getEspresso().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getLatte().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getMocha().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getSmall().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getMedium().setBackground(Color.lightGray);
-                WaterHeater_VIEW.getWaterHeaterView().getLarge().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setBackground(Color.lightGray);
+                CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setBackground(Color.lightGray);
             }
-        } //To change body of generated methods, choose Tools | Templates.
+        } 
     }
 
 }

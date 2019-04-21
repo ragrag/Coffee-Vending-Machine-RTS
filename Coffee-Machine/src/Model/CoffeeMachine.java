@@ -6,7 +6,9 @@
 package Model;
 
 import backend.event.engine.Engine;
-import system.views.WaterHeater_VIEW;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -21,12 +23,13 @@ public class CoffeeMachine {
         
         this.powered = true;
         SelectionPanel.getInstance();
+        Screen.getScreen();
         WaterHeater.getInstance();
         MoneyHandler.getMoneyHandler();
         InventoryHandler.getInsatance();
         TransactionProcessor.getInstance();
         Mixer.getInstance();
-        WaterHeater_VIEW.getWaterHeaterView().setPower(powered);
+        CoffeeMachineGUI.getCoffeeMachineGUI().setPower(powered);
         
         
         
@@ -37,51 +40,67 @@ public class CoffeeMachine {
                         System.out.println("Machine Power state changed ");
                         switchPower();
                         handleSystem();
-                        WaterHeater_VIEW.getWaterHeaterView().setPower(powered);
-
+                        CoffeeMachineGUI.getCoffeeMachineGUI().setPower(powered);
+                        
                     }
                 });
     }
 
     public void handleSystem(){
-        if(!powered)
-            disableBottuns();
-        else
+        if(!powered){
+            Screen.getScreen().display("Thank you\nGoodbye :)");
+            Thread goodbye = new Thread(){
+            public void run()
+            {
+                try {
+                Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                }
+                Screen.getScreen().display(" ");
+                disableBottuns();  
+            }};
+           goodbye.start();
+        }
+        
+        else{
+            
             enableBottuns();
+            Screen.getScreen().display("Hello! Please select your drink :)");
+        }
     }
     
     
     public void disableBottuns(){
-        WaterHeater_VIEW.getWaterHeaterView().getAmericano().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getEspresso().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getMocha().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getLatte().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getSugar().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getSmall().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getMedium().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getLarge().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getStart().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getCancel().setEnabled(false);
-        WaterHeater_VIEW.getWaterHeaterView().getInsertMoney().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getSugar().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getStart().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getCancel().setEnabled(false);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getInsertMoney().setEnabled(false);
         SelectionPanel.getInstance().stopBlinking();
     }
     
     public void enableBottuns(){
-        WaterHeater_VIEW.getWaterHeaterView().getAmericano().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getCappuccino().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getEspresso().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getMocha().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getLatte().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getMacchiato().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getSugar().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getSmall().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getMedium().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getLarge().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getStart().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getCancel().setEnabled(true);
-        WaterHeater_VIEW.getWaterHeaterView().getInsertMoney().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getSugar().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getStart().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getCancel().setEnabled(true);
+        CoffeeMachineGUI.getCoffeeMachineGUI().getInsertMoney().setEnabled(true);
     }
     public boolean getPowered() {
         return powered;

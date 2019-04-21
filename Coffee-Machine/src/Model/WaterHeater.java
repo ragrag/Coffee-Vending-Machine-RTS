@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import system.events.*;
 import system.views.MachineStatsGUI;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -21,13 +21,11 @@ public class WaterHeater extends Thread {
 
     //private gui;
     private static WaterHeater waterHeater = new WaterHeater();
-    private WaterHeater_Light waterHeaterLight;
  
     private boolean heating;
 
     private WaterHeater() {
 
-        waterHeaterLight = new WaterHeater_Light();
         //WaterHeater_VIEW.getWaterHeaterView().setStatus("Heating");
         MachineStatsGUI.getInstance().setStatus("Heating");
         heating = true;

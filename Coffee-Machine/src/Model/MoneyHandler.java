@@ -7,7 +7,7 @@ package Model;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -61,13 +61,13 @@ public class MoneyHandler extends Thread {
     public void autheniecateMoney(){
 
         if(condition != null){
-                if(!condition)
+                if(condition)
                 {
-                    rejectMoney();
+                    acceptMoney();
                  }
                 else
                 {
-                    acceptMoney();
+                    rejectMoney();
                 }
             }
 
@@ -79,27 +79,29 @@ public class MoneyHandler extends Thread {
             condition = null;
             System.out.println("The balance equal "+balance);
             TransactionProcessor.getInstance().setBalance(balance);
-            WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
-                        
+            //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
+            Screen.getScreen().display("The balance equal "+balance);
         }
             else{
                 Money_Dispenser.getMoneyDispenser().dispenseMoney();
                 condition = null;
-                WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nRejected Money Value");
+                //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nRejected Money Value");
+                Screen.getScreen().display("The balance equal "+balance+"\nRejected Money Value");
             }
     }
     public void rejectMoney(){
         Money_Dispenser.getMoneyDispenser().dispenseMoney();
         condition = null;
-        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nBad Money Condition");
-                
+        //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nBad Money Condition");
+        Screen.getScreen().display("The balance equal "+balance+"\nBad Money Condition");     
     }
     
     public void returnMoneyToUser(int money){
         System.out.println("Take your money "+money);
         balance = 0;
-        Money_Dispenser.getMoneyDispenser().dispenseMoney();
-        WaterHeater_VIEW.getWaterHeaterView().getScreen().setText("Balance : "+balance+"\nMoney Dispensed : "+money);
+        Money_Dispenser.getMoneyDispenser().dispenseCoins(money);
+        //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("Balance : "+balance+"\nMoney Dispensed : "+money);
+        Screen.getScreen().display("Balance : "+balance+"\nMoney Dispensed : "+money);
     }
     
     @Override

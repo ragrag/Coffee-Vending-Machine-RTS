@@ -7,7 +7,7 @@ package Model;
 
 import backend.event.engine.Engine;
 import java.util.Random;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *

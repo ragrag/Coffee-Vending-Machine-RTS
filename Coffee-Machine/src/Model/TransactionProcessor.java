@@ -7,7 +7,7 @@ package Model;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import system.views.WaterHeater_VIEW;
+import system.views.CoffeeMachineGUI;
 
 /**
  *
@@ -54,15 +54,23 @@ public class TransactionProcessor extends Thread {
 
     public void startOrder() {
         if (drink == null) {
-            System.out.println("Please select drink first");
+            Screen.getScreen().display("Please select drink first");
         } else {
-            orderPrice = drink.price + ((size - 1) * 5);
+            calculatePrice();
             change = balance - orderPrice;
             this.state = false;
         }
 
     }
-
+    
+    public void calculatePrice(){
+        orderPrice = drink.price + ((size - 1) * 5);
+    }
+    
+    public int getOrderPrice(){
+        return orderPrice;
+    }
+    
     public int getBalance() {
         return balance;
     }
@@ -95,20 +103,17 @@ public class TransactionProcessor extends Thread {
 
     @Override
     public void run() {
-        //super.run(); //To change body of generated methods, choose Tools | Templates.
         while (true) {
             if (CoffeeMachine.getInstance().getPowered()) {
                 if (state != null) {
                     if (state == false) {
                         if (change < 0) {
-                            System.out.println("Insufficent balance");
+                            Screen.getScreen().display("The balance equal "+balance+"\nOrder price "+orderPrice+"\nInsufficent balance");
                             state = null;
                         } else {
                             state = true;
                         }
                     } else if (state == true) {
-                        //insiateOrderProccessing
-                        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
                         CoffeeMachine.getInstance().disableBottuns();
 
                         Thread t = new Thread() {
@@ -135,9 +140,9 @@ public class TransactionProcessor extends Thread {
             }
 
             try {
-                this.sleep(1400);
+                this.sleep(1000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

@@ -34,6 +34,7 @@ public class MachineStatsGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 setVisible(true);
+                setLocation(CoffeeMachineGUI.getCoffeeMachineGUI().getX() + CoffeeMachineGUI.getCoffeeMachineGUI().getWidth(), CoffeeMachineGUI.getCoffeeMachineGUI().getY());
             }
         });
         initComponents();
@@ -122,8 +123,8 @@ public class MachineStatsGUI extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(255, 255, 0));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Choclate");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 90, 40));
+        jLabel3.setText("Chocolate");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 100, 40));
 
         ChoclateSlider.setMaximum(20);
         ChoclateSlider.setOrientation(javax.swing.JSlider.VERTICAL);
