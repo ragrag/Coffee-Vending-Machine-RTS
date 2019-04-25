@@ -7,51 +7,31 @@ package Model;
 
 import backend.event.engine.Engine;
 import java.util.Random;
-import system.views.CoffeeMachineGUI;
 
 /**
  *
  * @author glori
  */
 public class Money_Sensor {
-
-    
-    
     private static  Money_Sensor moneySensor;
     
     public static Money_Sensor getInstance(){
-    
-        if(moneySensor!= null){
-        
+        if(moneySensor!= null)
             return moneySensor;
-        }
-        else{
-        
-        
+        else
             moneySensor= new Money_Sensor();
             return moneySensor;
-        
         }
-    
-    
-    }
 
-
-    
     private Money_Sensor() {
         Engine.createStatement("select value, condition from InsertMoney_EVENT")
                 .setSubscriber(new Object() {
                     public void update(int value, boolean condition) throws InterruptedException {
                         Random r=new Random();
                         condition =r.nextBoolean();
-                        System.out.println("Money value: " + value);
-                        System.out.println("Money condition: " + condition);
                         MoneyHandler.getMoneyHandler().setValue(value);
                         MoneyHandler.getMoneyHandler().setCondition(condition);
                     }
                 });
-        
     }
-    
-    
 }

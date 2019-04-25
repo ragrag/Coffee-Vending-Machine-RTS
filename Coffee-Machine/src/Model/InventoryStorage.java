@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author Mostafa
+ * @author 
  */
 public class InventoryStorage {
     private int sugar;
@@ -28,31 +28,38 @@ public class InventoryStorage {
         this.medium = 30;
         this.large = 30;
     }
-public static InventoryStorage getInstance(){
-
-    if(inventorystorage != null){
-        return inventorystorage;
-    }
-    else {
-        inventorystorage = new InventoryStorage();
-        return inventorystorage;
     
+    public static InventoryStorage getInstance(){
+        if(inventorystorage != null){
+            return inventorystorage;
+        }
+        else{
+            inventorystorage = new InventoryStorage();
+            return inventorystorage;
+        }
     }
-}
 
     public boolean releaseIngredients(int sugar, int milk,int coffee, int chocolate,int size){
-        if(size==1)
-            small--;
-        else if(size==2)
-            medium--;
-        else if(size==3)
-            large--;
+        switch (size) {
+            case 1:
+                small--;
+                break;
+            case 2:
+                medium--;
+                break;
+            case 3:
+                large--;
+                break;
+            default:
+                break;
+        }
         this.sugar-=sugar;
         this.milk-=milk;
         this.coffee-=coffee;
         this.chocolate-=chocolate;
         return true;
     }
+    
     public int getSugar() {
         return sugar;
     }
@@ -84,7 +91,6 @@ public static InventoryStorage getInstance(){
     public void setWater(int water) {
         this.water = water;
         InventoryHandler.getInsatance().setWaterQuantity(water);
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAa"+ this.water);
     }
 
     public int getChocolate() {
@@ -98,8 +104,6 @@ public static InventoryStorage getInstance(){
     public static InventoryStorage getInventorystorage() {
         return inventorystorage;
     }
-
-
 
     public int getSmall() {
         return small;
@@ -124,6 +128,4 @@ public static InventoryStorage getInstance(){
     public void setLarge(int large) {
         this.large = large;
     }
- 
-    
 }

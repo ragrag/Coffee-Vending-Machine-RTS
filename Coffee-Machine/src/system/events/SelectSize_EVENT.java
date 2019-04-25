@@ -7,7 +7,7 @@ package system.events;
 
 /**
  *
- * @author ragrag
+ * @author 
  */
 public class SelectSize_EVENT {
     int size;

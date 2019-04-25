@@ -18,7 +18,7 @@ import system.events.*;
 
 /**
  *
- * @author ragrag
+ * @author 
  */
 public class CoffeeMachineGUI extends javax.swing.JFrame {
 
@@ -35,11 +35,9 @@ public class CoffeeMachineGUI extends javax.swing.JFrame {
             this.power.setForeground(Color.GREEN);
         } else if (pow == "OFF") {
             this.power.setForeground(Color.RED);
-            
         }
     }
 
- 
     private CoffeeMachineGUI() {
         initComponents();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -48,23 +46,7 @@ public class CoffeeMachineGUI extends javax.swing.JFrame {
             }
         });
     }
-/*
     
-     public void setTemp(String tempreture) {
-        this.tempreture.setText(tempreture);
-    }
-    
-     public void setStatus(String status) {
-        this.status.setText(status);
-        if (status == "COOLING") {
-            this.status.setForeground(Color.BLUE);
-        } else if (status == "HEATING") {
-            this.status.setForeground(Color.RED);
-        } else {
-            this.status.setForeground(Color.BLACK);
-        }
-    }
-    */
     public static CoffeeMachineGUI getCoffeeMachineGUI() {
         return coffeeMachine;
     }
@@ -391,7 +373,7 @@ public class CoffeeMachineGUI extends javax.swing.JFrame {
 
     private void SugarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SugarStateChanged
         // TODO add your handling code here:
-        Engine.sendEvent(new SelectSuger_EVENT(Sugar.getValue()));
+        Engine.sendEvent(new SelectSugar_EVENT(Sugar.getValue()));
     }//GEN-LAST:event_SugarStateChanged
 
     private void smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smallActionPerformed
@@ -415,109 +397,22 @@ public class CoffeeMachineGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @return 
      */
     public JTextArea getScreen() {
         return Screen;
     }
 
     /**
-     * @param args the command line arguments
+     * @return 
      */
     public JTextField getMoneyEntered() {
         return moneyEntered;
     }
     
-
-//    public void setDrink(Drink drink, boolean state) {
-//        switch (drink.getName()) {
-//            case "mocha":
-//                if (state) {
-//                    Mocha.setForeground(Color.GREEN);
-//                } else {
-//                    Mocha.setForeground(Color.RED);
-//                }
-//            case "espresso":
-//                if (state) {
-//                    Espresso.setForeground(Color.GREEN);
-//                } else {
-//                    Espresso.setForeground(Color.RED);
-//                }
-//            case "americano":
-//                if (state) {
-//                    Americano.setForeground(Color.GREEN);
-//                } else {
-//                    Americano.setForeground(Color.RED);
-//                }
-//            case "machiatto":
-//                if (state) {
-//                    Macchiato.setForeground(Color.GREEN);
-//                } else {
-//                    Macchiato.setForeground(Color.RED);
-//                }
-//            case "latte":
-//                if (state) {
-//                    Latte.setForeground(Color.GREEN);
-//                } else {
-//                    Latte.setForeground(Color.RED);
-//                }
-//            case "cappuccino":
-//                if (state) {
-//                    Cappuccino.setForeground(Color.GREEN);
-//                } else {
-//                    Cappuccino.setForeground(Color.RED);
-//                }
-//                
-//
-//        }
-//
-//    }
-//
-//    public JRadioButton getAmericano() {
-//        return Americano;
-//    }
-//
-//    
-//
-//    public JRadioButton getCappuccino() {
-//        return Cappuccino;
-//    }
-//
-//    public JRadioButton getEspresso() {
-//        return Espresso;
-//    }
-//
-//    
-//    public JRadioButton getLatte() {
-//        return Latte;
-//    }
-//
-//    public JRadioButton getMacchiato() {
-//        return Macchiato;
-//    }
-    
-//    public JRadioButton getMocha() {
-//        return Mocha;
-//    }
-    
     public JButton getInsertMoney() {
         return InsertMoney;
     }
-
-//    public JRadioButton getLarge() {
-//        return Large;
-//    }
-//
-//
-//    public JRadioButton getMedium() {
-//        return Medium;
-//    }
-//
-//    
-//
-//    public JRadioButton getSmall() {
-//        return Small;
-//    }
 
     public JButton getStart() {
         return Start;

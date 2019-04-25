@@ -7,17 +7,14 @@ package Model;
 
 import backend.event.engine.Engine;
 import java.awt.Color;
-import static java.awt.PageAttributes.ColorType.COLOR;
 import static java.lang.Thread.sleep;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import system.events.WaterHeater_Sensor_READING;
 import system.views.CoffeeMachineGUI;
 
 /**
  *
- * @author Mostafa
+ * @author 
  */
 public class SelectionPanel extends Thread {
 
@@ -41,7 +38,6 @@ public class SelectionPanel extends Thread {
         Engine.createStatement("select drink from SelectDrink_EVENT")
                 .setSubscriber(new Object() {
                     public void update(Drink d) throws InterruptedException {
-                        System.out.println("drink: " + d.getName());
                         if (blinkingThread != null) {
                             blinkingThread.stop();
                         }
@@ -52,25 +48,23 @@ public class SelectionPanel extends Thread {
                     }
                 });
 
-        Engine.createStatement("select sugerSelection from SelectSuger_EVENT")
+        Engine.createStatement("select sugarSelection from SelectSugar_EVENT")
                 .setSubscriber(new Object() {
-                    public void update(int suger) throws InterruptedException {
-                        System.out.println("suger: " + suger);
-                        TransactionProcessor.getInstance().setSuger(suger);
+                    public void update(int sugar) throws InterruptedException {
+                        TransactionProcessor.getInstance().setSugar(sugar);
                     }
                 });
 
         Engine.createStatement("select size from SelectSize_EVENT")
                 .setSubscriber(new Object() {
                     public void update(int size) throws InterruptedException {
-                        System.out.println("size: " + size);
                         if (sizeBlinkingThread != null) {
                             sizeBlinkingThread.stop();
                         }
                         sizeBlinking(size);
                         TransactionProcessor.getInstance().setSize(size);
                         TransactionProcessor.getInstance().calculatePrice();
-                        Screen.getScreen().display("The balance equal "+TransactionProcessor.getInstance().getBalance()+"\nOrder Price: "+ TransactionProcessor.getInstance().getOrderPrice());
+                        Screen.getScreen().display("The balance equal "+TransactionProcessor.getInstance().getBalance()+"\nOrder Price "+ TransactionProcessor.getInstance().getOrderPrice());
                     }
                 });
 
@@ -78,7 +72,6 @@ public class SelectionPanel extends Thread {
                 .setSubscriber(new Object() {
                     public void update(Boolean startOrder) throws InterruptedException {
                         stopBlinking();
-                        System.out.println("startOrder: " + startOrder);
                         TransactionProcessor.getInstance().startOrder();
                     }
                 });
@@ -86,7 +79,6 @@ public class SelectionPanel extends Thread {
                 .setSubscriber(new Object() {
                     public void update(Boolean cancel) throws InterruptedException {
                         stopBlinking();
-                        System.out.println("cancel: " + cancel);
                         TransactionProcessor.getInstance().cancel();
                     }
                 });
@@ -96,6 +88,7 @@ public class SelectionPanel extends Thread {
 
     public void drinkBlinking(Drink d) {
         blinkingThread = new Thread() {
+            @Override
             public void run() {
                 while (true) {
                     try {
@@ -103,18 +96,27 @@ public class SelectionPanel extends Thread {
                     } catch (InterruptedException ex) {
                         Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    if ("espresso".equals(d.getName())) {
-                        CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.CYAN);
-                    } else if ("mocha".equals(d.getName())) {
-                        CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.CYAN);
-                    } else if ("latte".equals(d.getName())) {
-                        CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.CYAN);
-                    } else if ("machiatto".equals(d.getName())) {
-                        CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.CYAN);
-                    } else if ("americano".equals(d.getName())) {
-                        CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.CYAN);
-                    } else if ("cappuccino".equals(d.getName())) {
-                        CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.CYAN);
+                    if (null != d.getName()) switch (d.getName()) {
+                        case "espresso":
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.CYAN);
+                            break;
+                        case "mocha":
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.CYAN);
+                            break;
+                        case "latte":
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.CYAN);
+                            break;
+                        case "machiatto":
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.CYAN);
+                            break;
+                        case "americano":
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.CYAN);
+                            break;
+                        case "cappuccino":
+                            CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.CYAN);
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -139,7 +141,6 @@ public class SelectionPanel extends Thread {
                     try {
                         sleep(500);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(SelectionPanel.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     switch (size) {
                         case 1:
@@ -161,7 +162,6 @@ public class SelectionPanel extends Thread {
     }
 
     public static SelectionPanel getInstance() {
-
         if (selectionpanel != null) {
 
             return selectionpanel;
@@ -172,8 +172,8 @@ public class SelectionPanel extends Thread {
     }
 
     public void ActivateButtons(Boolean mochabutton, Boolean espressobutton, Boolean americanobutton,
-            Boolean machiattobutton, Boolean cappuccinobutton, Boolean lattebutton, Boolean sugar,
-            Boolean small, Boolean medium, Boolean large) {
+        Boolean machiattobutton, Boolean cappuccinobutton, Boolean lattebutton, Boolean sugar,
+        Boolean small, Boolean medium, Boolean large) {
 
         this.cappuccinobutton = cappuccinobutton;
         this.espressobutton = espressobutton;
@@ -192,70 +192,57 @@ public class SelectionPanel extends Thread {
     @Override
     public void run() {
         while (true) {
-
             try {
                 sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(WaterHeater_Sensor.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (CoffeeMachine.getInstance().getPowered()) {
-
                 if (this.americanobutton) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.red);
                 }
-
                 if (this.cappuccinobutton) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.red);
                 }
-
                 if (this.espressobutton) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getEspresso().setBackground(Color.red);
                 }
-
                 if (this.lattebutton) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getLatte().setBackground(Color.red);
                 }
-
                 if (this.machiattobutton) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getMacchiato().setBackground(Color.red);
                 }
-
                 if (this.mochabutton) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getMocha().setBackground(Color.red);
                 }
-
                 if (this.small) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getSmall().setBackground(Color.red);
                 }
-
                 if (this.medium) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getMedium().setBackground(Color.red);
                 }
-
                 if (this.large) {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setBackground(Color.green);
                 } else {
                     CoffeeMachineGUI.getCoffeeMachineGUI().getLarge().setBackground(Color.red);
                 }
-
-                System.out.println("Mocha" + mochabutton);
-
             } else {
                 CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setBackground(Color.lightGray);
                 CoffeeMachineGUI.getCoffeeMachineGUI().getCappuccino().setBackground(Color.lightGray);

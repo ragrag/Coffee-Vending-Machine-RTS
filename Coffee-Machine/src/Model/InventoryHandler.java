@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Mostafa
+ * @author 
  */
 public class InventoryHandler {
 
@@ -20,13 +20,10 @@ public class InventoryHandler {
         IngredientsSensor.getInstance();
     }
     public static InventoryHandler getInsatance(){
-    
         if(inventoryhandler != null){
-        
             return inventoryhandler;
         }
         else{
-        
             return inventoryhandler = new InventoryHandler();
         }
     }
@@ -50,17 +47,11 @@ public class InventoryHandler {
         return (WaterTank.getInstance().releaseWater(200 + ((size-1)*100))&& InventoryStorage.getInstance().releaseIngredients(sugar, milk, coffee, chocolate, size));
     }
     
-     public void Recivequantity(int wateramount,int coffeamount,int sugaramount, int chocolateamount,int milkquantity,int smallamount,int mediumamount,int largeamount){
-    //System.out.println("AAASSSSSSSSSSSSSSSSSSBBBBBBBBBBBB" );
-         ArrayList<Drink> allDrinks = Drink.getDrinks();
-         System.out.println(coffeamount+ " "+chocolateamount+" "+milkquantity);
-                 
-                 
-         //System.out.println("AAASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSss" );
-         boolean mocha = false,espresso = false,americano = false, machiatto = false ,cappuccino = false,latte = false,sugar=false,small=false,medium=false,large=false;
-         for (Drink v : allDrinks)
-         {
- 
+    public void Recivequantity(int wateramount,int coffeamount,int sugaramount, int chocolateamount,int milkquantity,int smallamount,int mediumamount,int largeamount){
+        ArrayList<Drink> allDrinks = Drink.getDrinks();
+        boolean mocha = false,espresso = false,americano = false, machiatto = false ,cappuccino = false,latte = false,sugar=false,small=false,medium=false,large=false;
+        for (Drink v : allDrinks)
+        {
             switch(v.name){
                     case "mocha":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
@@ -80,21 +71,17 @@ public class InventoryHandler {
                     case "cappuccino":
                         if(checkValidDrink(v ,coffeamount,chocolateamount,milkquantity))
                         cappuccino = true;
-                    
-             }
-               
-         }
-         if(sugaramount>=5)
-             sugar=true;
-         if(smallamount>=1)
-             small=true;
-         if(mediumamount>=1)
-             medium=true;
-         if(largeamount>=1)
-             large=true;
-         //SelectionPanel.getInstance().ActivateButtons(mocha, espresso, cappuccino, machiatto, americano, latte,sugar,small,medium,large);
+            }
+        }
+        if(sugaramount>=5)
+            sugar=true;
+        if(smallamount>=1)
+            small=true;
+        if(mediumamount>=1)
+            medium=true;
+        if(largeamount>=1)
+            large=true;
          
-         SelectionPanel.getInstance().ActivateButtons(mocha, espresso, cappuccino, machiatto, americano, latte,sugar,small,medium,large);
-     
-     }
+        SelectionPanel.getInstance().ActivateButtons(mocha, espresso, cappuccino, machiatto, americano, latte,sugar,small,medium,large);
+    }
 }

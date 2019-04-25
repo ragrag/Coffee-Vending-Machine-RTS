@@ -7,7 +7,7 @@ package system.events;
 
 /**
  *
- * @author ragrag
+ * @author 
  */
 public class Start_EVENT {
     Boolean startOrder;
@@ -19,6 +19,4 @@ public class Start_EVENT {
     public Boolean getStartOrder() {
         return startOrder;
     }
-    
-    
 }

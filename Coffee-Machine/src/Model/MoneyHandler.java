@@ -11,14 +11,14 @@ import system.views.CoffeeMachineGUI;
 
 /**
  *
- * @author glori
+ * @author 
  */
 public class MoneyHandler extends Thread {
     private int balance;
     private int value;
     private Boolean condition;
-    
     private static MoneyHandler moneyHandler;
+    
     private MoneyHandler(){
         resetBalance();
         this.start();
@@ -26,8 +26,8 @@ public class MoneyHandler extends Thread {
         condition = null;
         Money_Sensor.getInstance();
     }
+    
     public static MoneyHandler getMoneyHandler(){
-        
         if (moneyHandler!=null)
             return moneyHandler;
         else
@@ -35,7 +35,6 @@ public class MoneyHandler extends Thread {
             moneyHandler = new MoneyHandler();
             return moneyHandler;
         }
-       
     }
 
     public void setValue(int value) {
@@ -58,63 +57,58 @@ public class MoneyHandler extends Thread {
         balance=0;
     }
     
-    public void autheniecateMoney(){
-
+    public void authenticateMoney(){
         if(condition != null){
                 if(condition)
-                {
                     acceptMoney();
-                 }
                 else
-                {
                     rejectMoney();
-                }
             }
-
-}
+    }
+    
     public void acceptMoney(){
         if(authenticateMoneyValue()){
             balance += value;
             value = 0;
             condition = null;
-            System.out.println("The balance equal "+balance);
             TransactionProcessor.getInstance().setBalance(balance);
-            //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("The balance equal "+balance);
             Screen.getScreen().display("The balance equal "+balance);
-        }
-            else{
-                Money_Dispenser.getMoneyDispenser().dispenseMoney();
-                condition = null;
-                //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nRejected Money Value");
-                Screen.getScreen().display("The balance equal "+balance+"\nRejected Money Value");
+        }else{
+            Money_Dispenser.getMoneyDispenser().dispenseMoney();
+            condition = null;
+            Screen.getScreen().display("The balance equal "+balance+"\nRejected Money Value");
             }
     }
+    
     public void rejectMoney(){
         Money_Dispenser.getMoneyDispenser().dispenseMoney();
         condition = null;
-        //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("The balance equal "+balance+"\nBad Money Condition");
         Screen.getScreen().display("The balance equal "+balance+"\nBad Money Condition");     
     }
     
     public void returnMoneyToUser(int money){
-        System.out.println("Take your money "+money);
-        balance = 0;
-        Money_Dispenser.getMoneyDispenser().dispenseCoins(money);
-        //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("Balance : "+balance+"\nMoney Dispensed : "+money);
-        Screen.getScreen().display("Balance : "+balance+"\nMoney Dispensed : "+money);
+        try {
+            balance = 0;
+            Money_Dispenser.getMoneyDispenser().dispenseCoins(money);
+            Screen.getScreen().display("Balance : "+balance+"\nMoney Dispensed : "+money);
+            Thread.sleep(3000);
+            Screen.getScreen().display("Thank you :)");
+            Thread.sleep(2000);
+            Screen.getScreen().display("Hello! Please select your drink :)");
+        } catch (InterruptedException ex) {
+        }
+        
     }
     
     @Override
     public void run() {
         while(true){
-            autheniecateMoney();
+            authenticateMoney();
             try {
                 this.sleep(500);
             } catch (InterruptedException ex) {
-                Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
     }
     
     public boolean authenticateMoneyValue(){

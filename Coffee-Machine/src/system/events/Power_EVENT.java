@@ -7,7 +7,7 @@ package system.events;
 
 /**
  *
- * @author mohamed
+ * @author 
  */
 public class Power_EVENT {
 

@@ -5,14 +5,12 @@
  */
 package system.views;
 
-import backend.event.engine.Engine;
 import java.awt.Color;
 import javax.swing.JSlider;
-import system.events.SelectSuger_EVENT;
 
 /**
  *
- * @author mohamed
+ * @author 
  */
 public class MachineStatsGUI extends javax.swing.JFrame {
     
@@ -23,14 +21,13 @@ public class MachineStatsGUI extends javax.swing.JFrame {
             return instance;
         else
             return instance=new MachineStatsGUI();
-        
     }
     
     
     /**
      * Creates new form MachineStatsGUI
      */
-    public MachineStatsGUI() {
+    private MachineStatsGUI() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 setVisible(true);
@@ -39,11 +36,11 @@ public class MachineStatsGUI extends javax.swing.JFrame {
         });
         initComponents();
     }
+    
     public void setTemp(String tempreture) {
         this.tempreture.setText(tempreture);
     }
 
-    
     public void setStatus(String status) {
         this.status.setText(status);
         if (status == "COOLING") {
@@ -69,7 +66,7 @@ public class MachineStatsGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         MilkSlider = new javax.swing.JSlider();
         jLabel3 = new javax.swing.JLabel();
-        ChoclateSlider = new javax.swing.JSlider();
+        ChocolateSlider = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
         LargeSlider = new javax.swing.JSlider();
         SmallSlider = new javax.swing.JSlider();
@@ -126,10 +123,10 @@ public class MachineStatsGUI extends javax.swing.JFrame {
         jLabel3.setText("Chocolate");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 100, 40));
 
-        ChoclateSlider.setMaximum(20);
-        ChoclateSlider.setOrientation(javax.swing.JSlider.VERTICAL);
-        ChoclateSlider.setValue(0);
-        getContentPane().add(ChoclateSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 40, 140));
+        ChocolateSlider.setMaximum(20);
+        ChocolateSlider.setOrientation(javax.swing.JSlider.VERTICAL);
+        ChocolateSlider.setValue(0);
+        getContentPane().add(ChocolateSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 40, 140));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 0));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -220,7 +217,7 @@ public class MachineStatsGUI extends javax.swing.JFrame {
      */
 
     public JSlider getChoclateSlider() {
-        return ChoclateSlider;
+        return ChocolateSlider;
     }
 
     public JSlider getCoffeeSlider() {
@@ -255,7 +252,7 @@ public class MachineStatsGUI extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSlider ChoclateSlider;
+    private javax.swing.JSlider ChocolateSlider;
     private javax.swing.JSlider CoffeeSlider;
     private javax.swing.JSlider LargeSlider;
     private javax.swing.JSlider MediumSlider;

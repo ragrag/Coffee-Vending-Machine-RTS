@@ -7,7 +7,7 @@ package system.events;
 
 /**
  *
- * @author ragrag
+ * @author 
  */
 public class Cancel_EVENT {
     Boolean cancel;

@@ -124,7 +124,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JSlider" name="ChoclateSlider">
+    <Component class="javax.swing.JSlider" name="ChocolateSlider">
       <Properties>
         <Property name="maximum" type="int" value="20"/>
         <Property name="orientation" type="int" value="1"/>

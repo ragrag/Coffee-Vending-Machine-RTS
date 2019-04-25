@@ -10,10 +10,11 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import system.views.MachineStatsGUI;
 import system.views.CoffeeMachineGUI;
+import system.views.PouringGUI;
 
 /**
  *
- * @author ragrag
+ * @author 
  */
 public class Main {
 
@@ -22,18 +23,14 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
         Logger.getRootLogger().setLevel(Level.OFF);
 
         // Register events
         Engine.registerEvents();
         CoffeeMachineGUI.getCoffeeMachineGUI();
         MachineStatsGUI.getInstance();
+        PouringGUI.getInstance();
         CoffeeMachine.getInstance();
-        
-        
-        // Create Kettle
-
     }
 
 }

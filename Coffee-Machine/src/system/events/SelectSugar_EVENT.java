@@ -5,22 +5,19 @@
  */
 package system.events;
 
-import Model.Drink;
-
 /**
  *
  * @author 
  */
-public class SelectDrink_EVENT {
-    Drink drink;
+public class SelectSugar_EVENT {
+    int sugarSelection;
 
-    public SelectDrink_EVENT(Drink drink) {
-        this.drink = drink;
+    public SelectSugar_EVENT(int sugarSelection) {
+        this.sugarSelection = sugarSelection;
     }
 
-    public Drink getDrink() {
-        return drink;
+    public int getSugarSelection() {
+        return sugarSelection;
     }
-    
     
 }

@@ -7,7 +7,7 @@ package system.events;
 
 /**
  *
- * @author Mostafa
+ * @author 
  */
 public class Inventory_Sensor_READING {
     
@@ -28,8 +28,6 @@ public class Inventory_Sensor_READING {
         this.mediumCups = mediumCups;
         this.largeCups = largeCups;
     }
-
-   
 
     public int getSugar() {
         return sugar;
@@ -62,7 +60,4 @@ public class Inventory_Sensor_READING {
     public int getLargeCups() {
         return largeCups;
     }
-    
-    
-    
 }

@@ -7,18 +7,18 @@ package system.events;
 
 /**
  *
- * @author mohamed
+ * @author 
  */
 public class WaterHeater_Sensor_READING {
 
-    double waterTempreture;
+    double waterTemperature;
 
-    public WaterHeater_Sensor_READING(double waterTempreture) {
-        this.waterTempreture = waterTempreture;
+    public WaterHeater_Sensor_READING(double waterTemperature) {
+        this.waterTemperature = waterTemperature;
     }
 
-    public double getWaterTempreture() {
-        return waterTempreture;
+    public double getWaterTemperature() {
+        return waterTemperature;
     }
 
 }

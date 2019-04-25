@@ -9,7 +9,7 @@ import system.views.CoffeeMachineGUI;
 
 /**
  *
- * @author glori
+ * @author 
  */
 public class Screen {
     
@@ -26,8 +26,8 @@ public class Screen {
             screen=new Screen();
             return screen;
         }
-       
     }
+    
     public void display(String msg)
     {
         CoffeeMachineGUI.getCoffeeMachineGUI().getScreen().setText(msg);

@@ -8,7 +8,7 @@ package Model;
 
 /**
  *
- * @author mohamed
+ * @author 
  */
 public class WaterTank {
 
@@ -17,16 +17,10 @@ public class WaterTank {
     private static  WaterTank watertank;
     
     public static WaterTank getInstance(){
-    
-        if(watertank!= null){
-        
+        if(watertank!= null)
             return watertank;
-        }
-        else{
+        else
             return watertank= new WaterTank();
-        }
-    
-    
     }
 
     private WaterTank() {
@@ -34,14 +28,11 @@ public class WaterTank {
         this.quantity = 200;
     }
 
-
-
     public double getTempreture() {
         return temperature;
     }
 
     void raiseTempreture() {
-
         temperature += 7.8;
     }
 

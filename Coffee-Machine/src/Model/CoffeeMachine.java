@@ -6,13 +6,11 @@
 package Model;
 
 import backend.event.engine.Engine;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import system.views.CoffeeMachineGUI;
 
 /**
  *
- * @author mohamed
+ * @author 
  */
 public class CoffeeMachine {
 
@@ -20,7 +18,6 @@ public class CoffeeMachine {
     private boolean powered;
 
     private CoffeeMachine() {
-        
         this.powered = true;
         SelectionPanel.getInstance();
         Screen.getScreen();
@@ -30,18 +27,14 @@ public class CoffeeMachine {
         TransactionProcessor.getInstance();
         Mixer.getInstance();
         CoffeeMachineGUI.getCoffeeMachineGUI().setPower(powered);
-        
-        
-        
-        
+
         Engine.createStatement("select powered from Power_EVENT")
                 .setSubscriber(new Object() {
                     public void update(boolean power) throws InterruptedException {
                         System.out.println("Machine Power state changed ");
                         switchPower();
                         handleSystem();
-                        CoffeeMachineGUI.getCoffeeMachineGUI().setPower(powered);
-                        
+                        CoffeeMachineGUI.getCoffeeMachineGUI().setPower(powered); 
                     }
                 });
     }
@@ -50,10 +43,11 @@ public class CoffeeMachine {
         if(!powered){
             Screen.getScreen().display("Thank you\nGoodbye :)");
             Thread goodbye = new Thread(){
+            @Override
             public void run()
             {
                 try {
-                Thread.sleep(1000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                 }
                 Screen.getScreen().display(" ");
@@ -61,14 +55,11 @@ public class CoffeeMachine {
             }};
            goodbye.start();
         }
-        
         else{
-            
             enableBottuns();
             Screen.getScreen().display("Hello! Please select your drink :)");
         }
     }
-    
     
     public void disableBottuns(){
         CoffeeMachineGUI.getCoffeeMachineGUI().getAmericano().setEnabled(false);

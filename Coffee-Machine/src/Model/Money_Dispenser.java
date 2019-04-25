@@ -6,31 +6,22 @@
 package Model;
 
 import backend.event.engine.Engine;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import system.events.InsertMoney_EVENT;
 import system.views.CoffeeMachineGUI;
 import java.io.*;
 import sun.audio.*;
-import javax.sound.sampled.*;
 
 /**
  *
- * @author glori
+ * @author 
  */
 public class Money_Dispenser {
 
     private static Money_Dispenser moneyDispenser = null;
-    //private InputStream moneySwallow;
-    //private AudioStream moneySwallowSound;
-    private InputStream moneySwallow;
-    private AudioStream moneySwallowSound;
-    //private Clip clip;
+    private InputStream input;
+    private AudioStream audio;
+    
     private Money_Dispenser() {
-//        try {
-//            //clip = AudioSystem.getClip();
-//        } catch (LineUnavailableException ex) {
-//            }
     }
 
     public static Money_Dispenser getMoneyDispenser() {
@@ -45,7 +36,6 @@ public class Money_Dispenser {
     public void swallow() {
         if ("".equals(CoffeeMachineGUI.getCoffeeMachineGUI().getMoneyEntered().getText())) {
             System.out.println("Please Enter Money First");
-            //CoffeeMachineGUI.getWaterHeaterView().getScreen().setText("Please Enter Money First");
             Screen.getScreen().display("Please Enter Money First");
         } else {
             Engine.sendEvent(new InsertMoney_EVENT(Integer.parseInt(CoffeeMachineGUI.getCoffeeMachineGUI().getMoneyEntered().getText()), true));
@@ -53,25 +43,18 @@ public class Money_Dispenser {
             
             try {
             //open the sound file as a Java input stream
-            moneySwallow = new FileInputStream("D:\\projects\\Coffee-Vending-Machine-RTS\\Coffee-Machine\\src\\Sounds\\Money_Swallow.wav");
+            input = new FileInputStream("D:\\projects\\Coffee-Vending-Machine-RTS\\Coffee-Machine\\src\\Sounds\\Money_Swallow.wav");
             
             //create an audiostream from the inputstream
-            moneySwallowSound = new AudioStream(moneySwallow);
+            audio = new AudioStream(input);
             
             //play the audio clip of swallowing money
-            AudioPlayer.player.start(moneySwallowSound);
-            //clip.open();
-            //clip.start();
+            AudioPlayer.player.start(audio);
         } catch (FileNotFoundException ex) {
             System.out.println("Cannot find the sound effect");
             } catch (IOException ex) {
             System.out.println("Cannot find the sound effect");
-            } 
-                //catch (UnsupportedAudioFileException ex) {
-//                } catch (LineUnavailableException ex) {
-//                 }
-            
-            
+            }   
         }
     }
     
@@ -79,45 +62,39 @@ public class Money_Dispenser {
         try {
             Thread.sleep(2000);
             //open the sound file as a Java input stream
-            moneySwallow = new FileInputStream("D:\\projects\\Coffee-Vending-Machine-RTS\\Coffee-Machine\\src\\Sounds\\Beeping.wav");
+            input = new FileInputStream("D:\\projects\\Coffee-Vending-Machine-RTS\\Coffee-Machine\\src\\Sounds\\Beeping.wav");
             
             //create an audiostream from the inputstream
-            moneySwallowSound = new AudioStream(moneySwallow);
+            audio = new AudioStream(input);
             
             //play the audio clip of swallowing money
-            AudioPlayer.player.start(moneySwallowSound);
-            //clip.open();
-            //clip.start();
+            AudioPlayer.player.start(audio);
         } catch (FileNotFoundException ex) {
             System.out.println("Cannot find the sound effect");
             } catch (IOException ex) {
             System.out.println("Cannot find the sound effect");
             } catch (InterruptedException ex) { 
-            //Logger.getLogger(Money_Dispenser.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
+            } 
     }
+    
     public void dispenseCoins(int change) {
         if(change!=0)
         {try {
             Thread.sleep(2000);
             //open the sound file as a Java input stream
-            moneySwallow = new FileInputStream("D:\\projects\\Coffee-Vending-Machine-RTS\\Coffee-Machine\\src\\Sounds\\Coin_Dispensing.wav");
+            input = new FileInputStream("D:\\projects\\Coffee-Vending-Machine-RTS\\Coffee-Machine\\src\\Sounds\\Coin_Dispensing.wav");
             
             //create an audiostream from the inputstream
-            moneySwallowSound = new AudioStream(moneySwallow);
+            audio = new AudioStream(input);
             
             //play the audio clip of swallowing money
-            AudioPlayer.player.start(moneySwallowSound);
-            //clip.open();
-            //clip.start();
+            AudioPlayer.player.start(audio);
         } catch (FileNotFoundException ex) {
             System.out.println("Cannot find the sound effect");
             } catch (IOException ex) {
             System.out.println("Cannot find the sound effect");
             } catch (InterruptedException ex) { 
-            //Logger.getLogger(Money_Dispenser.class.getName()).log(Level.SEVERE, null, ex);
-        } }
-        
+            } 
+        }
     }
 }

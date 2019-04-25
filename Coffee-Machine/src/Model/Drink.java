@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Mostafa
+ * @author 
  */
 public class Drink {
    
@@ -50,7 +50,7 @@ public class Drink {
         return name;
     }
     
-    private static  void initializeDrinks(){
+    private static void initializeDrinks(){
         Drink espresso = new Drink("espresso",5,0,0,5);
         Drink mocha = new Drink("mocha",3,2,3,20);
         Drink latte = new Drink("latte",2,5,0,15);

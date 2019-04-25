@@ -7,18 +7,18 @@ package Model;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import system.views.CoffeeMachineGUI;
+import system.views.PouringGUI;
 
 /**
  *
- * @author ragrag
+ * @author 
  */
 public class TransactionProcessor extends Thread {
 
     private static TransactionProcessor transactionInstance = null;
     Drink drink;
     int size;
-    int suger;
+    int sugar;
     Boolean state = null;
     Boolean pressCancel = false;
     int balance;
@@ -32,10 +32,9 @@ public class TransactionProcessor extends Thread {
         } else {
             return transactionInstance = new TransactionProcessor();
         }
-
     }
 
-    public TransactionProcessor() {
+    private TransactionProcessor() {
         resetTransaction();
         this.start();
     }
@@ -48,8 +47,8 @@ public class TransactionProcessor extends Thread {
         this.size = size;
     }
 
-    public void setSuger(int suger) {
-        this.suger = suger;
+    public void setSugar(int sugar) {
+        this.sugar = sugar;
     }
 
     public void startOrder() {
@@ -60,7 +59,6 @@ public class TransactionProcessor extends Thread {
             change = balance - orderPrice;
             this.state = false;
         }
-
     }
     
     public void calculatePrice(){
@@ -80,7 +78,7 @@ public class TransactionProcessor extends Thread {
     }
 
     public void resetTransaction() {
-        suger = 0;
+        sugar = 0;
         size = 1;
         state = null;
         balance = 0;
@@ -88,17 +86,17 @@ public class TransactionProcessor extends Thread {
         pressCancel = false;
         change = 0;
         drink = null;
+        PouringGUI.getInstance().getCupSize().setIcon(null);
+        PouringGUI.getInstance().getDrink().setValue(0);
     }
 
     public void cancel() {
         if (state == null) {
-            System.out.println("Cancel");
             MoneyHandler.getMoneyHandler().returnMoneyToUser(balance);
             resetTransaction();
         } else {
             System.out.println("Cannot Cancel");
         }
-
     }
 
     @Override
@@ -115,37 +113,26 @@ public class TransactionProcessor extends Thread {
                         }
                     } else if (state == true) {
                         CoffeeMachine.getInstance().disableBottuns();
-
                         Thread t = new Thread() {
                             public void run() {
-                                Mixer.getInstance().dispatchIngredients(suger, size, drink);
+                                Mixer.getInstance().dispatchIngredients(sugar, size, drink);
                             }
                         };
                         t.start();
-
                         try {
                             t.join();
                         } catch (InterruptedException ex) {
-                            Logger.getLogger(TransactionProcessor.class.getName()).log(Level.SEVERE, null, ex);
                         }
-
-                        //start code
                         CoffeeMachine.getInstance().enableBottuns();
                         MoneyHandler.getMoneyHandler().returnMoneyToUser(change);
                         resetTransaction();
                     }
                 }
-            } else {
-
             }
-
             try {
                 this.sleep(1000);
             } catch (InterruptedException ex) {
-                //Logger.getLogger(WaterHeater.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
-
 }

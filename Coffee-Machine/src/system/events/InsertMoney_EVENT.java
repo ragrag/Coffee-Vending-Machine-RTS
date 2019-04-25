@@ -7,7 +7,7 @@ package system.events;
 
 /**
  *
- * @author glori
+ * @author 
  */
 public class InsertMoney_EVENT {
     private int value;
