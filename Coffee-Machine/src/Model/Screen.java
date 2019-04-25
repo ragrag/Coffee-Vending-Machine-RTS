@@ -28,7 +28,7 @@ public class Screen {
         }
     }
     
-    public void display(String msg)
+    public synchronized void display(String msg)
     {
         CoffeeMachineGUI.getCoffeeMachineGUI().getScreen().setText(msg);
     }
