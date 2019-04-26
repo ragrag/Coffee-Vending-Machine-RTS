@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -100,6 +102,12 @@ public class Mixer {
             }catch (IOException ex) {
                 System.out.println("Cannot find the sound effect");
             }
+        Screen.getScreen().display("Enjoy your drink :)");
+        try {
+            sleep(1000);
+        } catch (InterruptedException ex) {
+            
+        }
     }
 
     public void dispatchIngredients(int sugar, int size, Drink drink) {
