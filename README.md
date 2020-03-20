@@ -9,6 +9,6 @@ Including:
 * Use Case Scenarios
 * State Machine Diagram along with full description of system stimuli.
 
-A full Implementation in Java
+* A full Implementation in Java
 * MVC Architechture
 
